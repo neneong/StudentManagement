@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//WebContent/query.sql=UTF-8
+encoding//src/common/JdbcUtil.java=UTF-8
+encoding//src/controller/MemberDeleteController.java=UTF-8
+encoding/src=UTF-8
