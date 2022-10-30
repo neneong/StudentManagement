@@ -71,7 +71,8 @@
               연도 선택
             </button>
             <ul class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 50px);" data-popper-placement="bottom-start">
-              <li><h6 class="dropdown-header">2022년</h6></li>
+              <li><h6 class="dropdown-header">연도 선택</h6></li>
+              <li><a class="dropdown-item" href="#">2022년</a></li>
               <li><a class="dropdown-item" href="#">2021년</a></li>
               <li><a class="dropdown-item" href="#">2020년</a></li>
               
