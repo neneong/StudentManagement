@@ -75,7 +75,6 @@
               <li><a class="dropdown-item" href="#">2022년</a></li>
               <li><a class="dropdown-item" href="#">2021년</a></li>
               <li><a class="dropdown-item" href="#">2020년</a></li>
-              
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">전체 보기</a></li>
             </ul>
@@ -132,5 +131,5 @@
       </div>
     </div>
   </div>
-
+<script src = "./js/script.js"></script>
 <%@ include file = "footer.jsp" %>
