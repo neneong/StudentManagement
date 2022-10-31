@@ -33,7 +33,7 @@ public class MemberlistController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberDAO dao = new MemberDAO();
 		ArrayList<MemberVO> memberList = dao.selectMember();
-		System.out.println(dao.selectMember());
+	
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
