@@ -45,34 +45,26 @@ public class ClassListController extends HttpServlet {
 		}
 		
 		if(year != null) {
-			
+			classList = dao.selectClassByYear(year);
 		}else {
 			classList = dao.selectClass();
 		}
 		
 		
-		
+		System.out.println(classList.get(0).getClassId());;
 		
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		
 		request.setAttribute("classList", classList);
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberDAO dao = new MemberDAO();
-		ArrayList<MemberVO> memberList = dao.selectMember();
-		
-		
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		
-		request.setAttribute("memberList", memberList);
+		doGet(request, response);
 	}
 
 }
