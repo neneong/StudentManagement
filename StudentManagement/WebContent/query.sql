@@ -8,12 +8,15 @@ create table member(
 
 );
 
---create table class(
---	classId varchar2(20),
---	className varchar2(20),
---	classInfo varchar2(100),
---)
---
+create table class(
+	classId varchar2(20),
+	className varchar2(20),
+	classInfo varchar2(100),
+	dates varchar2(20)
+)
+
+insert into class values('1', 'alpha', 'aaaaaaaa', '2022-11-01');
+
 --create table student(
 --	userid varchar2(20),
 --	classId varchar2(20)

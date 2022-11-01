@@ -9,13 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ClassDAO;
 import dao.MemberDAO;
+import vo.ClassVO;
 import vo.MemberVO;
 
 /**
  * Servlet implementation class ClassListController
  */
-@WebServlet("/classList")
+@WebServlet("/")
 public class ClassListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,14 +33,32 @@ public class ClassListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberDAO dao = new MemberDAO();
-		ArrayList<MemberVO> memberList = dao.selectMember();
+		
+		ClassDAO dao = new ClassDAO();
+		ArrayList<ClassVO> classList = new ArrayList<>();
+		
+		String year = "";
+		try {
+			year = request.getParameter("year");
+		}catch(Exception e) {
+			
+		}
+		
+		if(year != null) {
+			
+		}else {
+			classList = dao.selectClass();
+		}
+		
+		
+		
+		
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		request.setAttribute("memberList", memberList);
-		request.getRequestDispatcher("/memberList.jsp").forward(request, response);
+		request.setAttribute("classList", classList);
+		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 	/**

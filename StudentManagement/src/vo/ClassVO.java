@@ -5,7 +5,10 @@ public class ClassVO {
 	private String className;
 	private String teacherName;
 	private String classInfo;
+	private String date;
 	
+	
+
 	public ClassVO() {
 		super();
 	}
@@ -54,6 +57,14 @@ public class ClassVO {
 
 	public void setClassInfo(String classInfo) {
 		this.classInfo = classInfo;
+	}
+	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 

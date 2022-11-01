@@ -21,14 +21,15 @@ public class ClassDAO {
 		conn = JdbcUtil.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("select userid, username from member order by userid");
+			pstmt = conn.prepareStatement("select classid, classname, classinfo, dates from class order by classid");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				classes = new ClassVO();
-				classes.setClassId(rs.getString("classId"));
-				classes.setClassName(rs.getString("className"));
-				classes.setClassInfo(rs.getString("classInfo"));
+				classes.setClassId(rs.getString("classid"));
+				classes.setClassName(rs.getString("classname"));
+				classes.setClassInfo(rs.getString("classinfo"));
+				classes.setClassInfo(rs.getString("dates"));
 				classList.add(classes);
 			}
 		}catch(SQLException e) {
@@ -54,6 +55,7 @@ public class ClassDAO {
 			pstmt.setString(1, vo.getClassId());
 			pstmt.setString(2, vo.getClassName());
 			pstmt.setString(3, vo.getClassInfo());
+			pstmt.setString(4, vo.getDate());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -84,18 +86,18 @@ public class ClassDAO {
 		return n;
 	}
 	
-	public int deleteMember(String userId) {
+	public int deleteClass(String classId) {
 		int n = 0;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "delete from member where userid=?";
+		String sql = "delete from class where classId=?";
 		
 		conn = JdbcUtil.getConnection();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
+			pstmt.setString(1, classId);
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
