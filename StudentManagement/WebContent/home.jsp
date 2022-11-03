@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "header.jsp" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <style>
@@ -67,12 +67,14 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="item" items="${classList}">
+
+            <c:forEach var="item" items="${classes}">
                 <tr>
+                	
                     <td>${item.classId}</td>
                     <td>${item.className}</td>
-                    <td>${item.dates}</td>
-                    <td><a href="${pageContext.request.contextPath}/memberDelete?userId=${item.userId}" class="del">삭제</a></td>
+                    <td>${item.date}</td>
+                    <td><a href="${pageContext.request.contextPath}/memberDelete?userId=${item.classId}" class="del">삭제</a></td>
                 </tr>
             </c:forEach>
         </tbody>

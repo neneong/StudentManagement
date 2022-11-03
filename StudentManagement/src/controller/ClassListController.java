@@ -17,7 +17,7 @@ import vo.MemberVO;
 /**
  * Servlet implementation class ClassListController
  */
-@WebServlet("/")
+@WebServlet("/classList")
 public class ClassListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -51,12 +51,9 @@ public class ClassListController extends HttpServlet {
 		}
 		
 		
-		System.out.println(classList.get(0).getClassId());;
-		
-		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		request.setAttribute("classList", classList);
+		request.setAttribute("classes", classList);
 		request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 
