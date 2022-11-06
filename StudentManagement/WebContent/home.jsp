@@ -104,6 +104,7 @@
                     <p class="card-text">${item.classInfo}</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
+						<a href="${pageContext.request.contextPath}/memberDelete?userId=${item.classId}" class="del">삭제</a>
                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                         <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                       </div>
