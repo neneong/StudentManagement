@@ -1,10 +1,10 @@
 package vo;
 
-public class MemberVO {
+public class TeacherVO {
 	private String userId;
 	private String userName;
 	
-	public MemberVO() {
+	public TeacherVO() {
 		super();
 	}
 

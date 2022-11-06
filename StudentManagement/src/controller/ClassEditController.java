@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.MemberDAO;
-import vo.MemberVO;
+import dao.TeacherDAO;
+import vo.TeacherVO;
 
 /**
  * Servlet implementation class ClassEditController
@@ -29,8 +29,8 @@ public class ClassEditController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberDAO dao = new MemberDAO();
-		MemberVO vo = new MemberVO();
+		TeacherDAO dao = new TeacherDAO();
+		TeacherVO vo = new TeacherVO();
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");

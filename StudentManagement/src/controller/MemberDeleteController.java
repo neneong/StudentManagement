@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.MemberDAO;
+import dao.TeacherDAO;
 
 /**
  * Servlet implementation class MemberDeleteController
@@ -37,7 +37,7 @@ public class MemberDeleteController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		MemberDAO dao = new MemberDAO();
+		TeacherDAO dao = new TeacherDAO();
 		int n = dao.deleteMember(userId);
 		if(n<=0) {
 			out.println("<script>alert('멤버 삭제 실패');</script>");

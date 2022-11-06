@@ -9,16 +9,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import common.JdbcUtil;
-import vo.MemberVO;
+import vo.TeacherVO;
 
-public class MemberDAO {
-	public ArrayList<MemberVO> selectMember(){
-		ArrayList<MemberVO> memberList = new ArrayList <MemberVO>();
+public class TeacherDAO {
+	public ArrayList<TeacherVO> selectMember(){
+		ArrayList<TeacherVO> memberList = new ArrayList <TeacherVO>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		MemberVO member = null;
+		TeacherVO member = null;
 		
 		conn = JdbcUtil.getConnection();
 		
@@ -27,7 +27,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				member = new MemberVO();
+				member = new TeacherVO();
 				member.setUserId(rs.getString("userid"));
 				member.setUserName(rs.getString("username"));
 				memberList.add(member);
@@ -42,7 +42,7 @@ public class MemberDAO {
 		return memberList;
 	}
 	
-	public int insertMember(MemberVO vo) {
+	public int insertMember(TeacherVO vo) {
 		int n = 0;
 		
 		Connection conn = null;
@@ -63,7 +63,7 @@ public class MemberDAO {
 		return n;
 	}
 	
-	public int updateMember(MemberVO vo) {
+	public int updateMember(TeacherVO vo) {
 		int n = 0;
 		
 		Connection conn = null;

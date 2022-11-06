@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ClassDAO;
-import dao.MemberDAO;
+import dao.TeacherDAO;
 import vo.ClassVO;
-import vo.MemberVO;
+import vo.TeacherVO;
 
 /**
  * Servlet implementation class ClassListController
