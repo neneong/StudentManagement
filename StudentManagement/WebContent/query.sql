@@ -9,17 +9,16 @@ insert into class values('1', 'alpha', 'aaaaaaaa', '2022-11-01');
 
 create table student(
 	studentid varchar2(20),
-	classId varchar2(20),
+	studentname varchar2(20),
 	birth varchar2(20),
-	studentname varchar2(20)
+	
 );
 
 
 create table teacher(
-	userid varchar2(20),
-	username varchar2(20),
+	teacherid varchar2(20),
+	teachername varchar2(20),
 	usertype char(1),
-	
 	primary key(userid)
 );
 
