@@ -12,16 +12,17 @@ create table student(
 	studentid varchar2(20),
 	studentname varchar2(20),
 	birth varchar2(20),
-	
+	CONSTRAINT fk_id_teacher FOREIGN KEY(studentid)
+    REFERENCES middle(userid) ON DELETE CASCADE
 );
 
 
 create table teacher(
-	idx number(20),
+	idx number(20) primary key,
 	teacherid varchar2(20),
 	teachername varchar2(20),
-	CONSTRAINT fk_code FOREIGN KEY(parentPk)
-    REFERENCES parentTable(parentPk) ON DELETE CASCADE
+	CONSTRAINT fk_id_teacher FOREIGN KEY(teacherid)
+    REFERENCES middle(userid) ON DELETE CASCADE
 );
 
 create table middle(
