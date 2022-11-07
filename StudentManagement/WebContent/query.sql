@@ -8,6 +8,7 @@ create table class(
 insert into class values('1', 'alpha', 'aaaaaaaa', '2022-11-01');
 
 create table student(
+	idx number(20),
 	studentid varchar2(20),
 	studentname varchar2(20),
 	birth varchar2(20),
@@ -16,14 +17,15 @@ create table student(
 
 
 create table teacher(
+	idx number(20),
 	teacherid varchar2(20),
 	teachername varchar2(20),
-	usertype char(1),
-	primary key(userid)
+	CONSTRAINT fk_code FOREIGN KEY(parentPk)
+    REFERENCES parentTable(parentPk) ON DELETE CASCADE
 );
 
 create table middle(
-	userid varchar2(20),
+	userid varchar2(20) primary key ,
 	classid varhcar2(20)
 );
 
