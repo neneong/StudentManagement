@@ -8,23 +8,25 @@ create table class(
 insert into class values('1', 'alpha', 'aaaaaaaa', '2022-11-01');
 
 create table student(
+	idx number(20),
 	studentid varchar2(20),
-	classId varchar2(20),
+	studentname varchar2(20),
 	birth varchar2(20),
-	studentname varchar2(20)
+	CONSTRAINT fk_id_teacher FOREIGN KEY(studentid)
+    REFERENCES middle(userid) ON DELETE CASCADE
 );
 
 
 create table teacher(
-	userid varchar2(20),
-	username varchar2(20),
-	usertype char(1),
-	
-	primary key(userid)
+	idx number(20) primary key,
+	teacherid varchar2(20),
+	teachername varchar2(20),
+	CONSTRAINT fk_id_teacher FOREIGN KEY(teacherid)
+    REFERENCES middle(userid) ON DELETE CASCADE
 );
 
 create table middle(
-	userid varchar2(20),
+	userid varchar2(20) primary key ,
 	classid varhcar2(20)
 );
 
