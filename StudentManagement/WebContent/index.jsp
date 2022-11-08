@@ -131,7 +131,7 @@ body {
 <body class="text-center">
 
 	<main class="form-signin w-100 m-auto">
-	<form>
+	<form action="/userLogin" method="post">
 
 		<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
