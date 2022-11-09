@@ -1,11 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
+import dao.TeacherDAO;
 
 /**
  * Servlet implementation class UserLoginController
@@ -26,8 +32,23 @@ public class UserLoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		String userId = request.getParameter("userId");
+		String userPwd = request.getParameter("userPwd");
+		String contextPath = request.getContextPath();
+		HttpSession session = request.getSession(true);
+		
+		TeacherDAO dao = new TeacherDAO();
+		int n = dao.getMember(userId, userPwd);
+		if(n<=0) {
+			out.println("<script>alert('로그인에 실패했습니다.');history.back();</script>");
+		}else {
+			session.setAttribute("id", "userId");
+			response.sendRedirect("/classList");
+		}
+		
 	}
 
 	/**

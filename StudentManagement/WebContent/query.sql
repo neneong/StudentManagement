@@ -8,32 +8,38 @@ create table class(
 insert into class values('1', 'alpha', 'aaaaaaaa', '2022-11-01');
 
 create table student(
-	idx number(20),
-	studentid varchar2(20),
+	studentid varchar2(20) primary key,
 	studentname varchar2(20),
-	birth varchar2(20),
-	CONSTRAINT fk_id_teacher FOREIGN KEY(studentid)
-    REFERENCES middle(userid) ON DELETE CASCADE
+	birth varchar2(20)
 );
 
 
 create table teacher(
-	idx number(20) primary key,
-	teacherid varchar2(20),
-	teachername varchar2(20),
-	CONSTRAINT fk_id_teacher FOREIGN KEY(teacherid)
-    REFERENCES middle(userid) ON DELETE CASCADE
+	teacherid varchar2(20) primary key,
+	teacherpwd varchar2(20),
+	teachername varchar2(20)
 );
 
-create table middle(
-	userid varchar2(20) primary key ,
-	classid varhcar2(20)
+create table teacherTag(
+	userid varchar2(20),
+	classid varchar2(20),
+	CONSTRAINT fk_teacher_userid FOREIGN KEY(userid)
+    REFERENCES teacher(teacherid) ON DELETE CASCADE
 );
+
+create table studentTag(
+	userid varchar2(20),
+	classid varchar2(20),
+	CONSTRAINT fk_student_userid FOREIGN KEY(userid)
+    REFERENCES student(studentid) ON DELETE CASCADE
+);
+
 
 insert into member values('admin', '관리자');
 insert into member values('user1', '금나라');
 insert into member values('user2', '은나라');
 insert into member values('user3', '동나라');
 
-
-drop table member;
+drop table teacher;
+drop table student;
+drop table middle;

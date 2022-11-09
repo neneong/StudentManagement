@@ -42,6 +42,36 @@ public class TeacherDAO {
 		return memberList;
 	}
 	
+	public int getMember(String id, String pw) {		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		TeacherVO member = null;
+		int n = 0;
+		conn = JdbcUtil.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement("select userid, username from member where userid=? and userpwd=?");
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new TeacherVO();
+				member.setUserId(rs.getString("userid"));
+				member.setUserName(rs.getString("username"));
+				n=1;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			
+		}finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		}
+		
+		return n;
+	}
+	
 	public int insertMember(TeacherVO vo) {
 		int n = 0;
 		
