@@ -34,6 +34,7 @@ create table studentTag(
     REFERENCES student(studentid) ON DELETE CASCADE
 );
 
+insert into teacher values('1111','2222','aaaaa');
 
 insert into member values('admin', '관리자');
 insert into member values('user1', '금나라');

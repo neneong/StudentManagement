@@ -70,7 +70,21 @@
           <div class="dropdown justify-content-end d-flex p-2">
             <button class="btn btn-secondary btn-lg dropdown-toggle show" type="button" data-bs-toggle="dropdown"
               aria-expanded="true">
-              연도 선택
+              <%
+              	String year = "";
+              
+              	try {
+      				year = request.getParameter("year");
+      			}catch(Exception e) {
+      			
+      			}
+              	
+              	if(year != null){
+              		out.print(year);
+              	}else{
+              		out.print("연도 선택");
+              	}
+              %>
             </button>
             <ul class="dropdown-menu"
               style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 50px);"
@@ -78,9 +92,9 @@
               <li>
                 <h6 class="dropdown-header">연도 선택</h6>
               </li>
-              <li><a class="dropdown-item" href="/?year=2022">2022년</a></li>
-              <li><a class="dropdown-item" href="/?year=2021">2021년</a></li>
-              <li><a class="dropdown-item" href="/?year=2020">2020년</a></li>
+              <li><a class="dropdown-item" href="/classList?year=2022">2022년</a></li>
+              <li><a class="dropdown-item" href="/classList?year=2021">2021년</a></li>
+              <li><a class="dropdown-item" href="/classList?year=2020">2020년</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>

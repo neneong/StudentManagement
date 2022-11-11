@@ -16,13 +16,13 @@ import vo.TeacherVO;
  * Servlet implementation class MemberlistController
  */
 @WebServlet("/memberList")
-public class MemberlistController extends HttpServlet {
+public class StudentlistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberlistController() {
+    public StudentlistController() {
         super();
         // TODO Auto-generated constructor stub
     }

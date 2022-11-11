@@ -32,11 +32,11 @@
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="#">새 클래스 만들기</a></li>
-            <li><a class="dropdown-item" href="#">설정</a></li>
-            <li><a class="dropdown-item" href="#">프로필</a></li>
+            <li><a class="dropdown-item" href="/ClassAdd.jsp">새 클래스 만들기</a></li>
+            <li><a class="dropdown-item" href="/TeacherSettings.jsp">설정</a></li>
+            <li><a class="dropdown-item" href="/TeacherProfile.jsp">프로필</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">로그아웃</a></li>
+            <li><a class="dropdown-item" href="/userLogout.jsp">로그아웃</a></li>
           </ul>
         </div>
       </div>

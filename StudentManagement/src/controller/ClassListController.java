@@ -54,6 +54,7 @@ public class ClassListController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		request.setAttribute("classes", classList);
+		request.setAttribute("year", year);
 		request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 

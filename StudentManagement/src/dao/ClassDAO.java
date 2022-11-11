@@ -53,8 +53,8 @@ public class ClassDAO {
 		conn = JdbcUtil.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("select classid, classname, classinfo, dates from class where dates LIKE '?%' order by classid");
-			pstmt.setString(1, year);
+			pstmt = conn.prepareStatement("select classid, classname, classinfo, dates from class where dates LIKE ? order by classid");
+			pstmt.setString(1, year + "%");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

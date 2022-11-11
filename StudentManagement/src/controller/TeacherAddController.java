@@ -1,26 +1,23 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ClassDAO;
 /**
- * Servlet implementation class ClassDelete
+ * Servlet implementation class TeacherAddController
  */
-@WebServlet("/ClassDelete")
-public class ClassDeleteController extends HttpServlet {
+@WebServlet("/TeacherAddController")
+public class TeacherAddController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ClassDeleteController() {
+    public TeacherAddController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,19 +26,8 @@ public class ClassDeleteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		String ClassId = request.getParameter("userId");
-		String contextPath = request.getContextPath();
-		
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		
-		ClassDAO dao = new ClassDAO();
-		int n = dao.deleteClass(ClassId);
-		if(n<=0) {
-			out.println("<script>alert('클래스 삭제 실패');</script>");
-		}
-		response.sendRedirect(contextPath+"memberList");
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
