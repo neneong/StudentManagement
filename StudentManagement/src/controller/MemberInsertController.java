@@ -35,12 +35,12 @@ public class MemberInsertController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		vo.setUserId(request.getParameter("userId"));
-		vo.setUserName(request.getParameter("userName"));
+		vo.setTeacherId(request.getParameter("userId"));
+		vo.setTeacherName(request.getParameter("userName"));
 		
 		String contextPath = request.getContextPath();
 		
-		int n = dao.insertMember(vo);
+		int n = dao.insertTeacher(vo);
 		
 		if(n>0) {
 			response.sendRedirect(contextPath + "/memberList");

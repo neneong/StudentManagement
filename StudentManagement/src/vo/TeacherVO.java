@@ -1,28 +1,58 @@
 package vo;
 
 public class TeacherVO {
-	private String userId;
-	private String userName;
+	private String teacherId;
+	public String getTeacherId() {
+		return teacherId;
+	}
+
+
+
+
+	public void setTeacherId(String teacherId) {
+		this.teacherId = teacherId;
+	}
+
+
+
+
+	public String getTeacherPwd() {
+		return teacherPwd;
+	}
+
+
+
+
+	public void setTeacherPwd(String teacherPwd) {
+		this.teacherPwd = teacherPwd;
+	}
+
+
+
+
+	public String getTeacherName() {
+		return teacherName;
+	}
+
+
+
+
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
+
+
+
+
+	private String teacherPwd;
+	private String teacherName;
 	
+	
+
+
 	public TeacherVO() {
 		super();
 	}
 
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	
 	
 }

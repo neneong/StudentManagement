@@ -39,9 +39,8 @@ public class UserLoginController extends HttpServlet {
 		String userPwd = request.getParameter("userPwd");
 		String contextPath = request.getContextPath();
 		HttpSession session = request.getSession(true);
-		
 		TeacherDAO dao = new TeacherDAO();
-		int n = dao.getMember(userId, userPwd);
+		int n = dao.getTeacher(userId, userPwd);
 		if(n<=0) {
 			out.println("<script>alert('로그인에 실패했습니다.');history.back();</script>");
 		}else {

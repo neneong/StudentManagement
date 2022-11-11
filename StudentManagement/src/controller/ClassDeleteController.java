@@ -9,19 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TeacherDAO;
-
+import dao.ClassDAO;
 /**
- * Servlet implementation class MemberDeleteController
+ * Servlet implementation class ClassDelete
  */
-@WebServlet("/memberDelete")
-public class MemberDeleteController extends HttpServlet {
+@WebServlet("/ClassDelete")
+public class ClassDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberDeleteController() {
+    public ClassDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,16 +30,16 @@ public class MemberDeleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String userId = request.getParameter("userId");
+		String ClassId = request.getParameter("userId");
 		String contextPath = request.getContextPath();
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		TeacherDAO dao = new TeacherDAO();
-		int n = dao.deleteTeacher(userId);
+		ClassDAO dao = new ClassDAO();
+		int n = dao.deleteClass(ClassId);
 		if(n<=0) {
-			out.println("<script>alert('멤버 삭제 실패');</script>");
+			out.println("<script>alert('클래 삭제 실패');</script>");
 		}
 		response.sendRedirect(contextPath+"memberList");
 	}

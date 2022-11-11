@@ -39,7 +39,10 @@ insert into member values('admin', '관리자');
 insert into member values('user1', '금나라');
 insert into member values('user2', '은나라');
 insert into member values('user3', '동나라');
+insert into teacher values('1111', '2222', 'asdf');
+
 
 drop table teacher;
 drop table student;
 drop table middle;
+drop table member;

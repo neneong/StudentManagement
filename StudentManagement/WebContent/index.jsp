@@ -19,7 +19,7 @@
 <meta name="author"
 	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.104.2">
-<title>학생관리 프로그램!</title>
+<title>로그인 화면</title>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -135,19 +135,14 @@ body {
 		<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
 		<div class="form-floating">
-			<input type="text" class="form-control" id="floatingInput"
+			<input type="text" name = "userId" class="form-control" id="floatingInput"
 				placeholder="id"> <label for="floatingInput">ID</label>
 		</div>
 		<div class="form-floating">
-			<input type="password" class="form-control" id="floatingPassword"
+			<input type="password" name = "userPwd" class="form-control" id="floatingPassword"
 				placeholder="Password"> <label for="floatingPassword">Password</label>
 		</div>
 
-		<div class="checkbox mb-3">
-			<label> <input type="checkbox" value="remember-me">
-				Remember me
-			</label>
-		</div>
 		<button class="w-100 btn btn-lg btn-primary" type="submit">Sign
 			in</button>
 		<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
