@@ -70,21 +70,8 @@
           <div class="dropdown justify-content-end d-flex p-2">
             <button class="btn btn-secondary btn-lg dropdown-toggle show" type="button" data-bs-toggle="dropdown"
               aria-expanded="true">
-              <%
-              	String year = "";
-              
-              	try {
-      				year = request.getParameter("year");
-      			}catch(Exception e) {
-      			
-      			}
-              	
-              	if(year != null){
-              		out.print(year);
-              	}else{
-              		out.print("연도 선택");
-              	}
-              %>
+              <% String year="" ; try { year=request.getParameter("year"); }catch(Exception e) { } if(year !=null){
+                out.print(year); }else{ out.print("연도 선택"); } %>
             </button>
             <ul class="dropdown-menu"
               style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 50px);"
@@ -118,9 +105,11 @@
                     <p class="card-text">${item.classInfo}</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
-						<a href="${pageContext.request.contextPath}/ClassDelete?userId=${item.classId}" class="del"><button type="button" class="btn btn-sm btn-outline-secondary">삭제</button></a>
-                        <a href="${pageContext.request.contextPath}/ClassEdit?userId=${item.classId}" class="edit"><button type="button" class="btn btn-sm btn-outline-secondary">수정</button></a>
-                        
+                        <a href="${pageContext.request.contextPath}/ClassDelete?userId=${item.classId}"
+                          class="del"><button type="button" class="btn btn-sm btn-outline-secondary">삭제</button></a>
+                        <a href="${pageContext.request.contextPath}/ClassEdit?userId=${item.classId}"
+                          class="edit"><button type="button" class="btn btn-sm btn-outline-secondary">수정</button></a>
+
                       </div>
                       <small class="text-muted">${item.date}</small>
                     </div>
