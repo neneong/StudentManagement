@@ -2,7 +2,6 @@ create table class(
 	classId varchar2(20),
 	classPw varchar2(20),
 	className varchar2(20),
-	classInfo varchar2(100),
 	dates varchar2(20)
 );
 
