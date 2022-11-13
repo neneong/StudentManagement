@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ClassDAO;
+import vo.ClassVO;
 
 /**
  * Servlet implementation class ClassAddController
@@ -31,17 +32,23 @@ public class ClassAddController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String ClassName = request.getParameter("classId");
-		String ClassId = request.getParameter("classId");
-		String ClassPw = request.getParameter("classPw");
-		
 		String contextPath = request.getContextPath();
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
 		ClassDAO dao = new ClassDAO();
-		int n = dao.deleteClass(ClassId);
+		ClassVO vo = new ClassVO();
+		
+		vo.setClassName(request.getParameter("className"));
+		vo.setClassId(request.getParameter("classId"));
+		if(request.getParameter("classPw") != null) {
+			vo.setClassPw(request.getParameter("classPw"));
+		}else {
+			vo.setClassPw("");
+		}
+		
+		int n = dao.insertClass(vo);
 		if(n<=0) {
 			out.println("<script>alert('클래스 삭제 실패');</script>");
 		}

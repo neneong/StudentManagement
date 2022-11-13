@@ -4,7 +4,6 @@ public class ClassVO {
 	private String classId;
 	private String classPw;
 	private String className;
-	private String classInfo;
 	private String date;
 	
 	public ClassVO() {
@@ -45,20 +44,6 @@ public class ClassVO {
 		this.className = className;
 	}
 
-
-
-	public String getClassInfo() {
-		return classInfo;
-	}
-
-
-
-	public void setClassInfo(String classInfo) {
-		this.classInfo = classInfo;
-	}
-
-
-
 	public String getDate() {
 		return date;
 	}
@@ -70,15 +55,6 @@ public class ClassVO {
 	}
 
 
-
-	
-	
-	
-
-	
-	
-	
-	
 
 	
 }

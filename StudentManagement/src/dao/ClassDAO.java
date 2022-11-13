@@ -28,8 +28,7 @@ public class ClassDAO {
 				classes = new ClassVO();
 				classes.setClassId(rs.getString("classid"));
 				classes.setClassName(rs.getString("classname"));
-				classes.setClassInfo(rs.getString("classinfo"));
-				classes.setClassInfo(rs.getString("dates"));
+				classes.setDate(rs.getString("dates"));
 				classList.add(classes);
 			}
 		}catch(SQLException e) {
@@ -61,8 +60,7 @@ public class ClassDAO {
 				classes = new ClassVO();
 				classes.setClassId(rs.getString("classid"));
 				classes.setClassName(rs.getString("classname"));
-				classes.setClassInfo(rs.getString("classinfo"));
-				classes.setClassInfo(rs.getString("dates"));
+				classes.setDate(rs.getString("dates"));
 				classList.add(classes);
 			}
 		}catch(SQLException e) {
@@ -80,7 +78,7 @@ public class ClassDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into class(classId, classPw,className, classInfo, dates) values(?,?,?,?,?)";
+		String sql = "insert into class(classId, classPw, className, dates) values(?,?,?,?)";
 		
 		conn = JdbcUtil.getConnection();
 		try {
@@ -88,8 +86,7 @@ public class ClassDAO {
 			pstmt.setString(1, vo.getClassId());
 			pstmt.setString(2, vo.getClassPw());
 			pstmt.setString(3, vo.getClassName());
-			pstmt.setString(4, vo.getClassInfo());
-			pstmt.setString(5, vo.getDate());
+			pstmt.setString(4, vo.getDate());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
