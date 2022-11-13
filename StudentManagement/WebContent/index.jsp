@@ -37,21 +37,24 @@
 			<main class="form-signin w-100 m-auto">
 				<form action="/userLogin" method="post">
 
-					<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+					<h1 class="h3 mb-3 fw-normal">학생관리프로그램 </br> 로그인</h1>
 
 					<div class="form-floating">
 						<input type="text" name="userId" class="form-control" id="floatingInput" placeholder="id">
-						<label for="floatingInput">ID</label>
+						<label for="floatingInput">아이디</label>
 					</div>
 					<div class="form-floating" style="margin-top:5px;">
 						<input type="password" name="userPwd" class="form-control" id="floatingPassword"
-							placeholder="Password"> <label for="floatingPassword">Password</label>
+							placeholder="Password"> <label for="floatingPassword">비밀번호</label>
 					</div>
 
-					<button class="w-100 btn btn-lg btn-primary" type="submit">Sign
-						in</button>
-					<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+					<button class="w-100 btn btn-lg btn-primary" type="submit">로그인하기</button>
+					
+					
 				</form>
+				
+				<a href = "/signup.jsp"><button class="w-100 btn btn-lg btn-primary" style="margin-top:5px;">회원가입하기</button></a>
+				<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
 			</main>
 
 

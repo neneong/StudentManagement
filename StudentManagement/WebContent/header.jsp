@@ -18,7 +18,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body class = "d-flex flex-column min-vh-100">
     <header class="p-3 mb-3 border-bottom">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -43,8 +43,8 @@
           <ul class="dropdown-menu text-small">
           	<li class="dropdown-item"><%= (String)session.getAttribute("id") %></li>
             <li><a class="dropdown-item" href="/ClassAdd.jsp">새 클래스 만들기</a></li>
-            <li><a class="dropdown-item" href="/TeacherSettings.jsp">설정</a></li>
-            <li><a class="dropdown-item" href="/TeacherProfile.jsp">프로필</a></li>
+            <li><a class="dropdown-item" href="/addStudent.jsp">학생 추가하기</a></li>
+            <li><a class="dropdown-item" href="/changePassword.jsp">비밀번호 변경하기</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/userLogout">로그아웃</a></li>
           </ul>
