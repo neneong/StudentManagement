@@ -80,15 +80,16 @@ public class ClassDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into class(classId, className, classInfo, studentId) values(?,?,?,?)";
+		String sql = "insert into class(classId, classPw,className, classInfo, dates) values(?,?,?,?,?)";
 		
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getClassId());
-			pstmt.setString(2, vo.getClassName());
-			pstmt.setString(3, vo.getClassInfo());
-			pstmt.setString(4, vo.getDate());
+			pstmt.setString(2, vo.getClassPw());
+			pstmt.setString(3, vo.getClassName());
+			pstmt.setString(4, vo.getClassInfo());
+			pstmt.setString(5, vo.getDate());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

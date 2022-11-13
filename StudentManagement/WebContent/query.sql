@@ -1,9 +1,12 @@
 create table class(
 	classId varchar2(20),
+	classPw varchar2(20),
 	className varchar2(20),
 	classInfo varchar2(100),
 	dates varchar2(20)
 );
+
+drop table class;
 
 insert into class values('1', 'alpha', 'aaaaaaaa', '2022-11-01');
 

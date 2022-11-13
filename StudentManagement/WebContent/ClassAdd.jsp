@@ -60,6 +60,14 @@ html, body {
 	height: 100%;
 }
 
+section{
+	height:500px;
+	dispaly:flex;
+	align-items: center;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
 .form-signin {
 	max-width: 330px;
 	padding: 15px;
@@ -87,18 +95,18 @@ html, body {
         <main class="form-signin w-100 m-auto text-center">
         	<form action="/classAdd">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="alphabeta">
+            <input type="text" class="form-control" name="className" id="floatingInput" placeholder="alphabeta">
             <label for="floatingInput">클래스 이름</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="betagamma">
+            <input type="text" class="form-control" name="classId" id="floatingInput" placeholder="betagamma">
             <label for="floatingInput">클래스 아이디</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control" name = "classPw" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">비밀번호(선택)</label>
           </div>
-          <button type="button" class="btn btn-outline-primary">생성하기</button>
+          <button type="button" class="btn btn-outline-primary w-100 btn-lg">생성하기</button>
         </form>
         
         </main>
