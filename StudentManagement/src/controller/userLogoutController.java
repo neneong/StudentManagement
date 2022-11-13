@@ -9,21 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
-
-import dao.TeacherDAO;
 
 /**
- * Servlet implementation class UserLoginController
+ * Servlet implementation class userLogout
  */
-@WebServlet("/userLogin")
-public class UserLoginController extends HttpServlet {
+@WebServlet("/userLogout")
+public class userLogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserLoginController() {
+    public userLogoutController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,22 +29,16 @@ public class UserLoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		String userId = request.getParameter("userId");
-		String userPwd = request.getParameter("userPwd");
-		String contextPath = request.getContextPath();
-		HttpSession session = request.getSession(true);
-		TeacherDAO dao = new TeacherDAO();
-		int n = dao.getTeacher(userId, userPwd);
-		if(n<=0) {
-			out.println("<script>alert('로그인에 실패했습니다.');history.back();</script>");
+		HttpSession session = request.getSession(false);
+		if(session != null && session.getAttribute("id") != null) {
+			session.invalidate();
+			out.print("<script>alert('로그아웃 완료');location.href='/';</script>");
 		}else {
-			session.setAttribute("id", userId);
-			response.sendRedirect("/classList");
+			out.print("<script>alert('현재 로그인 상태가 아닙니다.');history.back();</script>");
 		}
-		
+		out.close();
 	}
 
 	/**

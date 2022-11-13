@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	String str=(String) session.getAttribute("id");
+	if(str !=null){
+		
+	} else{
+		out.print("<script>alert('잘못된 접근입니다.');location.href='/'</script>");
+		
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,11 +41,12 @@
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
+          	<li class="dropdown-item"><%= (String)session.getAttribute("id") %></li>
             <li><a class="dropdown-item" href="/ClassAdd.jsp">새 클래스 만들기</a></li>
             <li><a class="dropdown-item" href="/TeacherSettings.jsp">설정</a></li>
             <li><a class="dropdown-item" href="/TeacherProfile.jsp">프로필</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/userLogout.jsp">로그아웃</a></li>
+            <li><a class="dropdown-item" href="/userLogout">로그아웃</a></li>
           </ul>
         </div>
       </div>

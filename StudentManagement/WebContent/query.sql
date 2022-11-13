@@ -9,6 +9,8 @@ drop table class;
 
 insert into class values('1', 'alpha', 'aaaaaaaa', '2022-11-01');
 
+select * from class;
+
 create table student(
 	studentid varchar2(20) primary key,
 	studentname varchar2(20),

@@ -21,7 +21,7 @@ public class ClassDAO {
 		conn = JdbcUtil.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("select classid, classname, classinfo, dates from class order by classid");
+			pstmt = conn.prepareStatement("select classid, classname, dates from class order by classid");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
