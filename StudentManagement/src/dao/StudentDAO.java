@@ -40,7 +40,7 @@ public class StudentDAO {
 		return memberList;
 	}
 	
-	public int getTeacher(String id, String pw) {		
+	public int getStudent(String id, String pw) {		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -71,7 +71,7 @@ public class StudentDAO {
 		return n;
 	}
 	
-	public int insertTeacher(TeacherVO vo) {
+	public int insertStudent(TeacherVO vo) {
 		int n = 0;
 		
 		Connection conn = null;
@@ -93,7 +93,7 @@ public class StudentDAO {
 		return n;
 	}
 	
-	public int updateTeacher(TeacherVO vo) {
+	public int updateStudent(TeacherVO vo) {
 		int n = 0;
 		
 		Connection conn = null;
@@ -114,7 +114,7 @@ public class StudentDAO {
 		return n;
 	}
 	
-	public int deleteTeacher(String userId) {
+	public int deleteStudent(String userId) {
 		int n = 0;
 		
 		Connection conn = null;

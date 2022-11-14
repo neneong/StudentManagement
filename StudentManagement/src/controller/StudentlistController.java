@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.StudentDAO;
 import dao.TeacherDAO;
 import vo.TeacherVO;
 
@@ -31,14 +32,14 @@ public class StudentlistController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		TeacherDAO dao = new TeacherDAO();
+		StudentDAO dao = new StudentDAO();
 		ArrayList<TeacherVO> memberList = dao.selectMember();
 	
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		request.setAttribute("memberList", memberList);
-		request.getRequestDispatcher("/memberList.jsp").forward(request, response);
+		request.setAttribute("studentList", memberList);
+		request.getRequestDispatcher("/studentList.jsp").forward(request, response);
 		
 	}
 
