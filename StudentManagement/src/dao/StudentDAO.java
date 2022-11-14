@@ -7,27 +7,29 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import common.JdbcUtil;
+import vo.StudentVO;
 import vo.TeacherVO;
 
 public class StudentDAO {
-	public ArrayList<TeacherVO> selectMember(){
-		ArrayList<TeacherVO> memberList = new ArrayList <TeacherVO>();
+	public ArrayList<StudentVO> selectMember(){
+		ArrayList<StudentVO> memberList = new ArrayList <StudentVO>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		TeacherVO member = null;
+		StudentVO member = null;
 		
 		conn = JdbcUtil.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("select teacherid, teachername from teacher order by teacherid");
+			pstmt = conn.prepareStatement("select studentid, studentname, birth from student order by studentid");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				member = new TeacherVO();
-				member.setTeacherId(rs.getString("userid"));
-				member.setTeacherName(rs.getString("username"));
+				member = new StudentVO();
+				member.setStudentId(rs.getString("studentid"));
+				member.setStudentName(rs.getString("studentname"));
+				member.setStudentBirth(rs.getString("birth"));
 				memberList.add(member);
 			}
 		}catch(SQLException e) {
@@ -44,21 +46,21 @@ public class StudentDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		TeacherVO member = null;
+		StudentVO member = null;
 		int n = 0;
 		conn = JdbcUtil.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("select * from teacher where teacherid=? and teacherpwd=?");
+			pstmt = conn.prepareStatement("select * from student where studentid=?");
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				member = new TeacherVO();
-				member.setTeacherId(rs.getString("teacherid"));
-				member.setTeacherPwd(rs.getString("teacherpwd"));
-				member.setTeacherName(rs.getString("teachername"));
+				member = new StudentVO();
+				member.setStudentId(rs.getString("studentid"));
+				member.setStudentName(rs.getString("studentname"));
+				member.setStudentBirth(rs.getString("birth"));
 				n=1;
 			}
 		}catch(SQLException e) {
@@ -71,19 +73,19 @@ public class StudentDAO {
 		return n;
 	}
 	
-	public int insertStudent(TeacherVO vo) {
+	public int insertStudent(StudentVO vo) {
 		int n = 0;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into teacher values(?,?,?)";
+		String sql = "insert into student values(?,?,?)";
 		
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getTeacherId());
-			pstmt.setString(2, vo.getTeacherPwd());
-			pstmt.setString(3, vo.getTeacherName());
+			pstmt.setString(1, vo.getStudentId());
+			pstmt.setString(2, vo.getStudentName());
+			pstmt.setString(3, vo.getStudentBirth());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -93,18 +95,18 @@ public class StudentDAO {
 		return n;
 	}
 	
-	public int updateStudent(TeacherVO vo) {
+	public int updateStudent(StudentVO vo) {
 		int n = 0;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "update teacher set username=? where userid=?";
+		String sql = "update student set studentname=? where studentid=?";
 		
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getTeacherId());
-			pstmt.setString(2, vo.getTeacherName());
+			pstmt.setString(1, vo.getStudentName());
+			pstmt.setString(2, vo.getStudentId());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -119,7 +121,7 @@ public class StudentDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "delete from teacher where userid=?";
+		String sql = "delete from student where studentid=?";
 		
 		conn = JdbcUtil.getConnection();
 		

@@ -2,6 +2,10 @@ package vo;
 
 public class TeacherVO {
 	private String teacherId;
+	private String teacherPwd;
+	private String teacherName;
+	
+	
 	public String getTeacherId() {
 		return teacherId;
 	}
@@ -41,12 +45,6 @@ public class TeacherVO {
 		this.teacherName = teacherName;
 	}
 
-
-
-
-	private String teacherPwd;
-	private String teacherName;
-	
 	
 
 
