@@ -1,23 +1,26 @@
-package controller;
+package controller.classes;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ClassDAO;
 /**
- * Servlet implementation class UserSignInController
+ * Servlet implementation class ClassDelete
  */
-@WebServlet("/UserSignInController")
-public class UserSignInController extends HttpServlet {
+@WebServlet("/ClassDelete")
+public class ClassDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserSignInController() {
+    public ClassDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +29,19 @@ public class UserSignInController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter out = response.getWriter();
+		String ClassId = request.getParameter("userId");
+		String contextPath = request.getContextPath();
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		
+		ClassDAO dao = new ClassDAO();
+		int n = dao.deleteClass(ClassId);
+		if(n<=0) {
+			out.println("<script>alert('클래스 삭제 실패');</script>");
+		}
+		response.sendRedirect(contextPath+"memberList");
 	}
 
 	/**

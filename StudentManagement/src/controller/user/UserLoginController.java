@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,21 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
-import dao.ClassDAO;
-import vo.ClassVO;
+import dao.TeacherDAO;
 
 /**
- * Servlet implementation class ClassAddController
+ * Servlet implementation class UserLoginController
  */
-@WebServlet("/classAdd")
-public class ClassAddController extends HttpServlet {
+@WebServlet("/userLogin")
+public class UserLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ClassAddController() {
+    public UserLoginController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,28 +32,22 @@ public class ClassAddController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		String contextPath = request.getContextPath();
-		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		
-		ClassDAO dao = new ClassDAO();
-		ClassVO vo = new ClassVO();
-		
-		vo.setClassName(request.getParameter("className"));
-		vo.setClassId(request.getParameter("classId"));
-		if(request.getParameter("classPw") != null) {
-			vo.setClassPw(request.getParameter("classPw"));
-		}else {
-			vo.setClassPw("");
-		}
-		
-		int n = dao.insertClass(vo);
+		PrintWriter out = response.getWriter();
+		String userId = request.getParameter("userId");
+		String userPwd = request.getParameter("userPwd");
+		String contextPath = request.getContextPath();
+		HttpSession session = request.getSession(true);
+		TeacherDAO dao = new TeacherDAO();
+		int n = dao.getTeacher(userId, userPwd);
 		if(n<=0) {
-			out.println("<script>alert('클래스 삭제 실패');</script>");
+			out.println("<script>alert('로그인에 실패했습니다.');history.back();</script>");
+		}else {
+			session.setAttribute("id", userId);
+			response.sendRedirect("/classList");
 		}
-		response.sendRedirect(contextPath+"memberList");
+		
 	}
 
 	/**

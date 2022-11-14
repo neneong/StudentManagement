@@ -65,9 +65,9 @@
 										class="edit"><button type="button"
 											class="btn btn-sm btn-outline-secondary">수정</button></a>
 										<a
-										href="${pageContext.request.contextPath}/ClassEdit?userId=${item.classId}"
+										href="${pageContext.request.contextPath}/ClassView?userId=${item.classId}"
 										class="edit"><button type="button"
-											class="btn btn-sm btn-outline-secondary">출석체크</button></a>
+											class="btn btn-sm btn-outline-secondary">보기</button></a>
 
 								</div>
 								<small class="text-muted">${item.date}</small>

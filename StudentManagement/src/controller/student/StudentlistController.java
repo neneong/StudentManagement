@@ -1,26 +1,30 @@
-package controller;
+package controller.student;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import dao.StudentDAO;
+import dao.TeacherDAO;
+import vo.StudentVO;
+import vo.TeacherVO;
 
 /**
- * Servlet implementation class userLogout
+ * Servlet implementation class MemberlistController
  */
-@WebServlet("/userLogout")
-public class userLogoutController extends HttpServlet {
+@WebServlet("/memberList")
+public class StudentlistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public userLogoutController() {
+    public StudentlistController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,16 +33,15 @@ public class userLogoutController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		StudentDAO dao = new StudentDAO();
+		ArrayList<StudentVO> memberList = dao.selectMember();
+	
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession(false);
-		if(session != null && session.getAttribute("id") != null) {
-			session.invalidate();
-			out.print("<script>alert('로그아웃 완료');location.href='/';</script>");
-		}else {
-			out.print("<script>alert('현재 로그인 상태가 아닙니다.');history.back();</script>");
-		}
-		out.close();
+		
+		request.setAttribute("studentList", memberList);
+		request.getRequestDispatcher("/studentList.jsp").forward(request, response);
+		
 	}
 
 	/**
