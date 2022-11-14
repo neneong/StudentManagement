@@ -10,21 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ClassDAO;
-import dao.TeacherDAO;
 import vo.ClassVO;
-import vo.TeacherVO;
 
 /**
- * Servlet implementation class ClassListController
+ * Servlet implementation class ClassViewController
  */
-@WebServlet("/classList")
-public class ClassListController extends HttpServlet {
+@WebServlet("/ClassView")
+public class ClassViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ClassListController() {
+    public ClassViewController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,22 +31,12 @@ public class ClassListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		ClassDAO dao = new ClassDAO();
-		ArrayList<ClassVO> classList = new ArrayList<>();
-		
-		String year = "";
-		try {
-			year = request.getParameter("year");
-		}catch(Exception e) {
-			
-		}
-		
-		if(year != null) {
-			classList = dao.selectClassByYear(year);
-		}else {
-			classList = dao.selectClasses();
-		}
+		ClassVO vo = new ClassVO();
+		String classId = request.getParameter("classId");
+		dao.selectClass(classId);
+		String className = vo.getClassName();
+		String classdate = vo.getDate();
 		
 		
 		request.setCharacterEncoding("UTF-8");
@@ -62,6 +50,7 @@ public class ClassListController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

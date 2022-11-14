@@ -57,6 +57,18 @@ create table attend(
 
 insert into teacher values('1111','2222','aaaaa');
 
+insert into student values('2222','3333','2020-01-01');
+insert into studentTag values('2222','1');
+
+
+
+
+
+
+
+
+
+select * from studentTag;
 
 drop table teacher;
 drop table student;

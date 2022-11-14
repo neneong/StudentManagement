@@ -10,7 +10,33 @@ import common.JdbcUtil;
 import vo.ClassVO;
 
 public class ClassDAO {
-	public ArrayList<ClassVO> selectClass(){
+	public void selectClass(String classid){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ClassVO classes = new ClassVO();
+		
+		conn = JdbcUtil.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement("select classname, dates from class where classid=?");
+			pstmt.setString(1, classid);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				classes.setClassName(rs.getString("classname"));
+				classes.setDate(rs.getString("dates"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			
+		}finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		}
+		
+		return;
+	}
+	
+	public ArrayList<ClassVO> selectClasses(){
 		ArrayList<ClassVO> classList = new ArrayList <ClassVO>();
 		
 		Connection conn = null;

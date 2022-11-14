@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ClassDAO;
 import dao.TeacherDAO;
+import vo.ClassVO;
 import vo.TeacherVO;
 
 /**
@@ -29,18 +31,18 @@ public class ClassEditController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		TeacherDAO dao = new TeacherDAO();
-		TeacherVO vo = new TeacherVO();
+		ClassDAO dao = new ClassDAO();
+		ClassVO vo = new ClassVO();
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		vo.setTeacherId(request.getParameter("userId"));
-		vo.setTeacherName(request.getParameter("userName"));
+		vo.setClassId(request.getParameter("classId"));
+		vo.setClassName(request.getParameter("className"));
 		
 		String contextPath = request.getContextPath();
 		
-		int n = dao.insertTeacher(vo);
+		int n = dao.insertClass(vo);
 		
 		if(n>0) {
 			response.sendRedirect(contextPath + "/memberList");
