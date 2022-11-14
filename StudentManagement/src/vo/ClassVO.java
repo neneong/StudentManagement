@@ -2,13 +2,10 @@ package vo;
 
 public class ClassVO {
 	private String classId;
+	private String classPw;
 	private String className;
-	private String teacherName;
-	private String classInfo;
 	private String date;
 	
-	
-
 	public ClassVO() {
 		super();
 	}
@@ -25,6 +22,18 @@ public class ClassVO {
 
 
 
+	public String getClassPw() {
+		return classPw;
+	}
+
+
+
+	public void setClassPw(String classPw) {
+		this.classPw = classPw;
+	}
+
+
+
 	public String getClassName() {
 		return className;
 	}
@@ -35,38 +44,17 @@ public class ClassVO {
 		this.className = className;
 	}
 
-
-
-	public String getTeacherName() {
-		return teacherName;
-	}
-
-
-
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
-	}
-
-
-
-	public String getClassInfo() {
-		return classInfo;
-	}
-
-
-
-	public void setClassInfo(String classInfo) {
-		this.classInfo = classInfo;
-	}
-	
 	public String getDate() {
 		return date;
 	}
 
+
+
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
+
+
 
 	
 }

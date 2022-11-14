@@ -1,11 +1,15 @@
 create table class(
 	classId varchar2(20),
+	classPw varchar2(20),
 	className varchar2(20),
-	classInfo varchar2(100),
 	dates varchar2(20)
 );
 
+drop table class;
+
 insert into class values('1', 'alpha', 'aaaaaaaa', '2022-11-01');
+
+select * from class;
 
 create table student(
 	studentid varchar2(20) primary key,
@@ -13,6 +17,15 @@ create table student(
 	birth varchar2(20)
 );
 
+CREATE SEQUENCE student_seq
+       INCREMENT BY 1
+       START WITH 1
+       MINVALUE 1
+       NOCYCLE
+       NOCACHE
+       NOORDER;
+
+drop sequence emp_seq;
 
 create table teacher(
 	teacherid varchar2(20) primary key,
@@ -34,13 +47,15 @@ create table studentTag(
     REFERENCES student(studentid) ON DELETE CASCADE
 );
 
-insert into teacher values('1111','2222','aaaaa');
+create table attend(
+	userid varchar2(20),
+	attend char(1),
+	dates varchar2(20),
+	CONSTRAINT fk_student_userid FOREIGN KEY(userid)
+    REFERENCES student(studentid) ON DELETE CASCADE
+);
 
-insert into member values('admin', '관리자');
-insert into member values('user1', '금나라');
-insert into member values('user2', '은나라');
-insert into member values('user3', '동나라');
-insert into teacher values('1111', '2222', 'asdf');
+insert into teacher values('1111','2222','aaaaa');
 
 
 drop table teacher;

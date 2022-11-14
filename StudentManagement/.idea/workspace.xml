@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a7777ebc-20ef-4c61-9b62-27721915be1a" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/WebContent/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/query.sql" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/query.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/controller/UserLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/controller/UserLoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/dao/ClassDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/dao/ClassDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ClassDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ClassDAO.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2HUk6BtinHyK9Tc09tBQ1YNvrvq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jeong/Desktop/StudentManagement/StudentManagement&quot;
+  }
+}</component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="com.poratu.idea.plugins.tomcat" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="StudentManagement" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="StudentManagement" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a7777ebc-20ef-4c61-9b62-27721915be1a" name="Changes" comment="" />
+      <created>1668346875598</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668346875598</updated>
+      <workItem from="1668346879659" duration="54000" />
+      <workItem from="1668346962481" duration="31000" />
+      <workItem from="1668347029323" duration="153000" />
+      <workItem from="1668347217953" duration="62000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

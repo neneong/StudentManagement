@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	String str=(String) session.getAttribute("id");
+	if(str !=null){
+		
+	} else{
+		out.print("<script>alert('잘못된 접근입니다.');location.href='/'</script>");
+		
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +16,9 @@
 <title>학생관리 프로그램</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css?ver=1">
+
 </head>
-<body>
+<body class = "d-flex flex-column min-vh-100">
     <header class="p-3 mb-3 border-bottom">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -32,11 +41,12 @@
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
+          	<li class="dropdown-item"><%= (String)session.getAttribute("id") %></li>
             <li><a class="dropdown-item" href="/ClassAdd.jsp">새 클래스 만들기</a></li>
-            <li><a class="dropdown-item" href="/TeacherSettings.jsp">설정</a></li>
-            <li><a class="dropdown-item" href="/TeacherProfile.jsp">프로필</a></li>
+            <li><a class="dropdown-item" href="/addStudent.jsp">학생 추가하기</a></li>
+            <li><a class="dropdown-item" href="/changePassword.jsp">비밀번호 변경하기</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/userLogout.jsp">로그아웃</a></li>
+            <li><a class="dropdown-item" href="/userLogout">로그아웃</a></li>
           </ul>
         </div>
       </div>
