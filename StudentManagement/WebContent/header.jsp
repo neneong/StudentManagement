@@ -27,7 +27,7 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/studentManagement" class="nav-link px-2 link-dark">학생 관리</a></li>
+          <li><a href="/studentList" class="nav-link px-2 link-dark">학생 관리</a></li>
           <li><a href="/classManagement" class="nav-link px-2 link-dark">수업 관리</a></li>
           <li><a href="/classList" class="nav-link px-2 link-dark">클래스</a></li>
         </ul>
@@ -43,8 +43,8 @@
           <ul class="dropdown-menu text-small">
           	<li class="dropdown-item"><%= (String)session.getAttribute("id") %></li>
             <li><a class="dropdown-item" href="/ClassAdd.jsp">새 클래스 만들기</a></li>
-            <li><a class="dropdown-item" href="/addStudent.jsp">학생 추가하기</a></li>
-            <li><a class="dropdown-item" href="/changePassword.jsp">비밀번호 변경하기</a></li>
+            <li><a class="dropdown-item" href="/studentAdd.jsp">학생 추가하기</a></li>
+            <li><a class="dropdown-item" href="/settings.jsp">설정</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/userLogout">로그아웃</a></li>
           </ul>

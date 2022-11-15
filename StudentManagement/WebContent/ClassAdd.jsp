@@ -21,7 +21,7 @@
             <label for="floatingPassword">비밀번호(선택)</label>
           </div>
           
-          <button type="button" class="btn btn-outline-primary w-100 btn-lg">생성하기</button>
+          <button type="submit" class="btn btn-outline-primary w-100 btn-lg">생성하기</button>
         </form>
         
         </main>

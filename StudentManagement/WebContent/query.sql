@@ -12,7 +12,7 @@ insert into class values('1', 'alpha', 'aaaaaaaa', '2022-11-01');
 select * from class;
 
 create table student(
-	studentid varchar2(20) primary key,
+	studentid number(20) primary key,
 	studentname varchar2(20),
 	birth varchar2(20)
 );
@@ -41,7 +41,7 @@ create table teacherTag(
 );
 
 create table studentTag(
-	userid varchar2(20),
+	userid number(20),
 	classid varchar2(20),
 	CONSTRAINT fk_student_userid FOREIGN KEY(userid)
     REFERENCES student(studentid) ON DELETE CASCADE
@@ -60,8 +60,10 @@ insert into teacher values('1111','2222','aaaaa');
 insert into student values('2222','3333','2020-01-01');
 insert into studentTag values('2222','1');
 
-
-
+select * from student;
+select * from teacher;
+drop table studentTag;
+drop table student;
 select * from studentTag;
 
 drop table teacher;

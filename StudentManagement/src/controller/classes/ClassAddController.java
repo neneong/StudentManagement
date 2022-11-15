@@ -8,9 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ClassDAO;
+import dao.TeacherTagDAO;
 import vo.ClassVO;
+import vo.TeacherTagVO;
 
 /**
  * Servlet implementation class ClassAddController
@@ -33,26 +36,38 @@ public class ClassAddController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		String contextPath = request.getContextPath();
+		HttpSession session = request.getSession(true);
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
 		ClassDAO dao = new ClassDAO();
 		ClassVO vo = new ClassVO();
+		TeacherTagDAO ttd = new TeacherTagDAO();
+		TeacherTagVO ttv = new TeacherTagVO();
+		
+		
 		
 		vo.setClassName(request.getParameter("className"));
 		vo.setClassId(request.getParameter("classId"));
+		String teacherId = session.getAttribute("id").toString();
 		if(request.getParameter("classPw") != null) {
 			vo.setClassPw(request.getParameter("classPw"));
 		}else {
 			vo.setClassPw("");
 		}
 		
+		ttv.setClassId(teacherId);
+		ttv.setTeacherId(teacherId);
+		
 		int n = dao.insertClass(vo);
+		n+= ttd.insertClassTag(ttv);
 		if(n<=0) {
-			out.println("<script>alert('클래스 삭제 실패');</script>");
+			out.println("<script>alert('클래스 생성 실패');</script>");
+		}else {
+			out.println("<script>alert('클래스 생성 성공');</script>");
 		}
-		response.sendRedirect(contextPath+"memberList");
+		response.sendRedirect(contextPath+"classList");
 	}
 
 	/**

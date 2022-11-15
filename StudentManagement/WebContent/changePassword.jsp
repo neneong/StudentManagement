@@ -1,29 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="header.jsp" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  <%@ include file="header.jsp" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<section class = 'py-2 md-3 container d-flex shadow-sm w-25 h-25 mx-auto mt-auto flex-column '>
-	<div class="card text-center" >
-  		<div class="card-header">
-    		프로필 사진 변경
- 		 </div>
-  		<div class="card-body">
-    		<h5 class="card-title">프로필 사진을 변경합니다.</h5>
-    		<a href="#" class="btn btn-primary">사진 변경하기</a>
-  		</div>
-	</div>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/classes.css">
+
+      <section>
+
+        <main class="form-signin w-100 m-auto text-center">
+        	<form action="/changePassword" method="post">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="defaultPw" id="floatingInput" placeholder="alphabeta">
+            <label for="floatingInput">기존의 비밀번호</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" name = "newPw" id="floatingInput" placeholder="pw">
+            <label for="floatingDate">새로운 비밀번호</label>
+          </div>
+          
+          <button type="submit" class="btn btn-outline-primary w-100 btn-lg">비밀번호 변경하기</button>
+        </form>
+        
+        </main>
+
+      </section>
 
 
-	<div class="card text-center" style="margin-top:30px;">
-  		<div class="card-header">
-    		비밀번호 변경하기
- 		 </div>
-  		<div class="card-body">
-    		<h5 class="card-title">비밀번호를 변경합니다.</h5>
-    		<a href="#" class="btn btn-primary">비밀번호 변경하기</a>
-  		</div>
-	</div>
-
-</section>
-      
-<%@ include file="footer.jsp" %>
+      <script src="./js/script.js"></script>
+      <%@ include file="footer.jsp" %>

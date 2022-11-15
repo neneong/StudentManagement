@@ -7,13 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.StudentDAO;
 import dao.TeacherDAO;
+import vo.StudentVO;
 import vo.TeacherVO;
 
 /**
  * Servlet implementation class MemberInsertController
  */
-@WebServlet("/memberInsert")
+@WebServlet("/studentAdd")
 public class StudentAddController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,24 +31,24 @@ public class StudentAddController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		TeacherDAO dao = new TeacherDAO();
-		TeacherVO vo = new TeacherVO();
+		StudentDAO dao = new StudentDAO();
+		StudentVO vo = new StudentVO();
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		vo.setTeacherId(request.getParameter("userId"));
-		vo.setTeacherName(request.getParameter("userName"));
+		vo.setStudentName(request.getParameter("studentName"));
+		vo.setStudentBirth(request.getParameter("studentBirth"));
 		
 		String contextPath = request.getContextPath();
 		
-		int n = dao.insertTeacher(vo);
+		int n = dao.insertStudent(vo);
 		
 		if(n>0) {
-			response.sendRedirect(contextPath + "/memberList");
+			response.sendRedirect(contextPath + "/classList");
 			
 		}else {
-			response.sendRedirect(contextPath + "memberInsert.jsp");
+			response.sendRedirect(contextPath + "/classList");
 		}
 	}
 

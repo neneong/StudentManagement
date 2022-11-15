@@ -14,45 +14,34 @@
 				</div>
 			</section>
 
-			<div class="album py-5 bg-light">
+			<div class="album py-5 ">
 				<div class="container">
-
-					<div class="dropdown justify-content-end d-flex p-2">
-						<button class="btn btn-secondary btn-lg dropdown-toggle show" type="button"
-							data-bs-toggle="dropdown" aria-expanded="true">
-							<% String year="" ; try { year=request.getParameter("year"); }catch(Exception e) { } if(year
-								!=null){ out.print(year); }else{ out.print("연도 선택"); } %>
-						</button>
-						<ul class="dropdown-menu"
-							style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 50px);"
-							data-popper-placement="bottom-start">
-							<li>
-								<h6 class="dropdown-header">연도 선택</h6>
-							</li>
-							<li><a class="dropdown-item" href="/classList?year=2022">2022년</a></li>
-							<li><a class="dropdown-item" href="/classList?year=2021">2021년</a></li>
-							<li><a class="dropdown-item" href="/classList?year=2020">2020년</a></li>
-							<li>
-								<hr class="dropdown-divider">
-							</li>
-							<li><a class="dropdown-item" href="/">전체 보기</a></li>
-						</ul>
-					</div>
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-
+					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
 						<div class="col">
-							<div class="card" style="width: 18rem;">
-								<div class="card-header">
-									Featured
+							<div class="card text-center ms-4" style="width: 80rem;">
+								<div class="card-header d-flex justify-content-around ">
+									<div id = "stduentIdTitle" style="width: 20rem;">학생 아이디</div>
+									<div id = "studentNameTitle" style="width: 20rem;">학생 이름</div>
+									<div id = "studentNameTitle" style="width: 20rem;">생년월일</div>
+									<div id = "studentEditTitle" style="width: 20rem;">삭제</div>
+									<div id = "studentDeleteTitle" style="width: 20rem;">삭제</div>
 								</div>
 								<ul class="list-group list-group-flush">
-									<c:forEach var="item" items="${classes}">
-										<li class="list-group-item">${item.classId} <br> 
-											<a href="${pageContext.request.contextPath}/ClassDelete?userId=${item.classId}"class="del">
+									<c:forEach var="item" items="${studentList}">
+										<li class="list-group-item d-flex justify-content-around">
+											<div id = "stduentId" style="width: 20rem;">${item.studentId}</div>
+											<div id = "studentName" style="width: 20rem;">${item.studentName}</div>
+											<div id = "studentBirth" style="width: 20rem;">${item.studentBirth}</div>
+											<a style="width: 20rem;" href="${pageContext.request.contextPath}/StudentEdit?userId=${item.studentId}"class="del">
+												<button type="button"class="btn btn-sm btn-outline-secondary">수정</button>
+											</a>
+											<a style="width: 20rem;" href="${pageContext.request.contextPath}/StudentDelete?userId=${item.studentId}"class="del">
 												<button type="button"class="btn btn-sm btn-outline-secondary">삭제</button>
 											</a>
 										</li>
+										
+										
+										
 									</c:forEach>
 								</ul>
 							</div>

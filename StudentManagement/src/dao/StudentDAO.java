@@ -27,7 +27,7 @@ public class StudentDAO {
 			
 			while(rs.next()) {
 				member = new StudentVO();
-				member.setStudentId(rs.getString("studentid"));
+				member.setStudentId(rs.getInt("studentid"));
 				member.setStudentName(rs.getString("studentname"));
 				member.setStudentBirth(rs.getString("birth"));
 				memberList.add(member);
@@ -58,7 +58,7 @@ public class StudentDAO {
 			
 			if(rs.next()) {
 				member = new StudentVO();
-				member.setStudentId(rs.getString("studentid"));
+				member.setStudentId(rs.getInt("studentid"));
 				member.setStudentName(rs.getString("studentname"));
 				member.setStudentBirth(rs.getString("birth"));
 				n=1;
@@ -78,14 +78,13 @@ public class StudentDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into student values(?,?,?)";
+		String sql = "insert into student values(student_seq.nextval,?,?)";
 		
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getStudentId());
-			pstmt.setString(2, vo.getStudentName());
-			pstmt.setString(3, vo.getStudentBirth());
+			pstmt.setString(1, vo.getStudentName());
+			pstmt.setString(2, vo.getStudentBirth());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -106,7 +105,7 @@ public class StudentDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getStudentName());
-			pstmt.setString(2, vo.getStudentId());
+			pstmt.setInt(2, vo.getStudentId());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

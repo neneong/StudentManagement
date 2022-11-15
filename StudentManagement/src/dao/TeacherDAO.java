@@ -42,7 +42,7 @@ public class TeacherDAO {
 		return memberList;
 	}
 	
-	public int getTeacher(String id, String pw) {		
+	public int loginTeacher(String id, String pw) {		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -73,6 +73,31 @@ public class TeacherDAO {
 		return n;
 	}
 	
+	public int getTeacher(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int n = 0;
+		conn = JdbcUtil.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement("select * from teacher where teacherid=?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();	
+			if(rs.next()) {
+				n=1;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			
+		}finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		}
+		
+		return n;
+	}
+
+	
 	public int insertTeacher(TeacherVO vo) {
 		int n = 0;
 		
@@ -100,13 +125,34 @@ public class TeacherDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "update teacher set username=? where teacherid=?";
+		String sql = "update teacher set teachername=? where teacherid=?";
 		
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getTeacherId());
-			pstmt.setString(2, vo.getTeacherName());
+			pstmt.setString(1, vo.getTeacherName());
+			pstmt.setString(2, vo.getTeacherId());
+			n = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(conn, pstmt);
+		}
+		return n;
+	}
+	
+	public int updateTeacherPwd(TeacherVO vo) {
+		int n = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "update teacher set teacherpwd=? where teacherid=?";
+		
+		conn = JdbcUtil.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getTeacherPwd());
+			pstmt.setString(2, vo.getTeacherId());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

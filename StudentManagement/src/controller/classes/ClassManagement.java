@@ -1,4 +1,4 @@
-package controller.user;
+package controller.classes;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class UserSignInController
+ * Servlet implementation class classManagement
  */
-@WebServlet("/UserSignInController")
-public class UserSignInController extends HttpServlet {
+@WebServlet("/classManagement")
+public class ClassManagement extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserSignInController() {
+    public ClassManagement() {
         super();
         // TODO Auto-generated constructor stub
     }

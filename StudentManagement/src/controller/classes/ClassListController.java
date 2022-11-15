@@ -50,7 +50,6 @@ public class ClassListController extends HttpServlet {
 			classList = dao.selectClasses();
 		}
 		
-		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		request.setAttribute("classes", classList);
