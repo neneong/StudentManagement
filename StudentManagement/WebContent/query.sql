@@ -62,12 +62,6 @@ insert into studentTag values('2222','1');
 
 
 
-
-
-
-
-
-
 select * from studentTag;
 
 drop table teacher;
