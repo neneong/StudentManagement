@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ClassDAO;
+import dao.StudentTagDAO;
+import dao.TeacherTagDAO;
 import vo.ClassVO;
+import vo.StudentTagVO;
+import vo.TeacherTagVO;
 
 /**
  * Servlet implementation class ClassViewController
@@ -32,7 +36,13 @@ public class ClassViewController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ClassDAO dao = new ClassDAO();
+		TeacherTagDAO ttd = new TeacherTagDAO();
+		StudentTagDAO std = new StudentTagDAO();
 		ClassVO vo = new ClassVO();
+		TeacherTagVO ttv = new TeacherTagVO();
+		StudentTagVO stv = new StudentTagVO();
+		
+		
 		String classId = request.getParameter("classId");
 		dao.selectClass(classId);
 		String className = vo.getClassName();

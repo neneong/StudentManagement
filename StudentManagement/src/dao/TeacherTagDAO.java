@@ -11,13 +11,12 @@ import vo.StudentTagVO;
 import vo.TeacherTagVO;
 
 public class TeacherTagDAO {
-	public ArrayList<TeacherTagVO> selectClassById(String classId){
-		ArrayList<TeacherTagVO> teacherList = new ArrayList <TeacherTagVO>();
+	public String selectClassById(String classId){
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		TeacherTagVO classes = null;
+		String teacher="";
 		
 		conn = JdbcUtil.getConnection();
 		
@@ -26,10 +25,8 @@ public class TeacherTagDAO {
 			pstmt.setString(1, classId);
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
-				classes = new TeacherTagVO();
-				classes.setClassId(rs.getString("userid"));
-				teacherList.add(classes);
+			if(rs.next()) {
+				teacher = rs.getString("userid");
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -38,7 +35,7 @@ public class TeacherTagDAO {
 			JdbcUtil.close(conn, pstmt, rs);
 		}
 		
-		return teacherList;
+		return teacher;
 	}
 	
 	public int insertClassTag(TeacherTagVO vo) {
