@@ -1,7 +1,7 @@
 package controller.student;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,16 +15,16 @@ import vo.StudentVO;
 import vo.TeacherVO;
 
 /**
- * Servlet implementation class MemberlistController
+ * Servlet implementation class MemberInsertController
  */
-@WebServlet("/memberList")
-public class StudentlistController extends HttpServlet {
+@WebServlet("/studentDelete")
+public class StudentAddController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentlistController() {
+    public StudentAddController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +34,25 @@ public class StudentlistController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StudentDAO dao = new StudentDAO();
-		ArrayList<StudentVO> memberList = dao.selectMember();
-	
+		StudentVO vo = new StudentVO();
+		PrintWriter out = response.getWriter();
+		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		request.setAttribute("studentList", memberList);
-		request.getRequestDispatcher("/studentList.jsp").forward(request, response);
+		String studentId = request.getParameter("userId");
 		
+		String contextPath = request.getContextPath();
+		
+		int n = dao.deleteStudent(studentId);
+		
+		if(n>0) {
+			response.sendRedirect(contextPath + "/studentList");
+			
+		}else {
+            out.print("<script>alert('올바르지 않은 접근입니다.');</script>");
+			response.sendRedirect(contextPath + "/studentList.jsp");
+		}
 	}
 
 	/**
