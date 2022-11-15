@@ -23,7 +23,7 @@ public class StudentTagDAO {
 		conn = JdbcUtil.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("select userid from class where classid=?");
+			pstmt = conn.prepareStatement("select userid from studentTag where classid=?");
 			pstmt.setString(1, classId);
 			rs = pstmt.executeQuery();
 			
@@ -47,7 +47,7 @@ public class StudentTagDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into class(userId, classId) values(?,?)";
+		String sql = "insert into studentTag(userId, classId) values(?,?)";
 		
 		conn = JdbcUtil.getConnection();
 		try {
@@ -68,7 +68,7 @@ public class StudentTagDAO {
 //		
 //		Connection conn = null;
 //		PreparedStatement pstmt = null;
-//		String sql = "update class set classId=? where userId=?";
+//		String sql = "update studentTag set classId=? where userId=?";
 //		
 //		conn = JdbcUtil.getConnection();
 //		try {
@@ -89,7 +89,7 @@ public class StudentTagDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "delete from class where userId=? AND classId=?";
+		String sql = "delete from studentTag where userId=? AND classId=?";
 		
 		conn = JdbcUtil.getConnection();
 		
