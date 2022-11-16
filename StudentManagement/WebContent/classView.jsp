@@ -29,25 +29,29 @@
 						<div class="col">
 							<div class="card text-center ms-4" style="width: 80rem;">
 								<div class="card-header d-flex justify-content-around ">
-									<div id = "stduentIdTitle" style="width: 20rem;">학생 아이디</div>
-									<div id = "studentNameTitle" style="width: 20rem;">학생 이름</div>
-									<div id = "studentNameTitle" style="width: 20rem;">생년월일</div>
-									<div id = "studentEditTitle" style="width: 20rem;">수정</div>
-									<div id = "studentDeleteTitle" style="width: 20rem;">삭제</div>
+									<div id = "stduentIdTitle" style="width: 10rem;">학생 아이디</div>
+									<div id = "studentNameTitle" style="width: 10rem;">학생 이름</div>
+									<div id = "studentNameTitle" style="width: 10rem;">생년월일</div>
+									<div id = "studentEditTitle" style="width: 10rem;">수정</div>
+									<div id = "studentDeleteTitle" style="width: 10rem;">삭제</div>
+									<div style = "width:10rem;">출석 확인하기</div>
 								</div>
 								<ul class="list-group list-group-flush">
 
 									<c:forEach var="item" items="${studentList}">
 
 										<li class="list-group-item d-flex justify-content-around">
-											<div id = "stduentId" style="width: 20rem;">${item.studentId}</div>
-											<div id = "studentName" style="width: 20rem;">${item.studentName}</div>
-											<div id = "studentBirth" style="width: 20rem;">${item.studentBirth}</div>
-											<a style="width: 20rem;" href="${pageContext.request.contextPath}/StudentEdit?userId=${item.studentId}"class="del">
+											<div id = "stduentId" style="width: 10rem;">${item.studentId}</div>
+											<div id = "studentName" style="width: 10rem;">${item.studentName}</div>
+											<div id = "studentBirth" style="width: 10rem;">${item.studentBirth}</div>
+											<a style="width: 10rem;" href="${pageContext.request.contextPath}/StudentEdit?userId=${item.studentId}"class="del">
 												<button type="button"class="btn btn-sm btn-outline-secondary">수정</button>
 											</a>
-											<a style="width: 20rem;" href="${pageContext.request.contextPath}/StudentDelete?userId=${item.studentId}"class="del">
+											<a style="width: 10rem;" href="${pageContext.request.contextPath}/StudentDelete?userId=${item.studentId}"class="del">
 												<button type="button"class="btn btn-sm btn-outline-secondary">삭제</button>
+											</a>
+											<a style="width: 10rem;" href="${pageContext.request.contextPath}/classAttend?userId=${item.studentId}&classId=<%= request.getParameter("classId")%>"class="del">
+												<button type="button"class="btn btn-sm btn-outline-secondary">출석 확인하기</button>
 											</a>
 										</li>
 

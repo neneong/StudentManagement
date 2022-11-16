@@ -60,6 +60,7 @@ public class ClassViewController extends HttpServlet {
 		
 		
 		request.setCharacterEncoding("UTF-8");
+		request.setAttribute("classId", classId);
 		request.setAttribute("className", className);
 		request.setAttribute("classDate", classDate);
 		request.setAttribute("studentList", list);

@@ -13,7 +13,7 @@ import dao.ClassDAO;
 /**
  * Servlet implementation class ClassDelete
  */
-@WebServlet("/ClassDelete")
+@WebServlet("/classDelete")
 public class ClassDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

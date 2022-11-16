@@ -52,10 +52,11 @@ create table studentTag(
 create table attend(
 	userid number(20),
 	classid varchar2(20),
-	attend char(1),
 	dates date,
 	CONSTRAINT fk_attend_userid FOREIGN KEY(userid)
-    REFERENCES student(studentid) ON DELETE CASCADE
+    REFERENCES student(studentid) ON DELETE CASCADE,
+    CONSTRAINT fk_attend_classid FOREIGN KEY(classid)
+    REFERENCES class(classid) ON DELETE CASCADE
 );
 
 drop table attend;
