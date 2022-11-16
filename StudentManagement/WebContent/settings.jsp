@@ -30,7 +30,7 @@
  		 </div>
   		<div class="card-body">
     		<h5 class="card-title">선생님을 추가합니다.</h5>
-    		<a href="#" class="btn btn-primary">선생님 추가하기</a>
+    		<a href="/teacherAdd.jsp" class="btn btn-primary">선생님 추가하기</a>
   		</div>
 	</div>
 	

@@ -54,7 +54,6 @@
                   </svg>
 
 						<div class="card-body">
-
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group">
 									<a
