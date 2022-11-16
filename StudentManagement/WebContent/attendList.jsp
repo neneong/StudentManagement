@@ -8,7 +8,7 @@
 			<section class="py-5 text-center container">
 				<div class="row py-lg-5">
 					<div class="col-lg-6 col-md-8 mx-auto">
-						<h1 class="fw-light">학생 관리 프로그램</h1>
+						<h1 class="fw-light">출석부</h1>
 						<p class="lead text-muted"></p>
 					</div>
 				</div>
@@ -26,16 +26,15 @@
 									<div id = "studentEditTitle" style="width: 20rem;">취소</div>
 								</div>
 								<ul class="list-group list-group-flush">
-									<c:forEach var="item" items="${studentList}">
+									<c:forEach var="item" items="${attendList}">
 										<li class="list-group-item d-flex justify-content-around">
 											<div id = "stduentId" style="width: 20rem;">${item.studentId}</div>
-											<div id = "studentName" style="width: 20rem;">${item.studentName}</div>
-											<div id = "studentBirth" style="width: 20rem;">${item.studentBirth}</div>
+											<div id = "studentName" style="width: 20rem;">${studentName}</div>
+											<div id = "studentBirth" style="width: 20rem;">${item.date}</div>
 											<a style="width: 20rem;" href="${pageContext.request.contextPath}/StudentDelete?userId=${item.studentId}"class="del">
 												<button type="button"class="btn btn-sm btn-outline-secondary">삭제</button>
 											</a>
 										</li>
-										
 										
 										
 									</c:forEach>

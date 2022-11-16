@@ -59,12 +59,15 @@ create table attend(
     REFERENCES class(classid) ON DELETE CASCADE
 );
 
+select * from attend;
 drop table attend;
 
 insert into teacher values('1111','2222','aaaaa');
 
 insert into student values('2222','3333','2020-01-01');
 insert into studentTag values('2222','1');
+insert into attend values('2222', '1', '2022-11-18');
+
 
 select * from student;
 select * from teacher;

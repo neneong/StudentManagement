@@ -15,9 +15,13 @@
 				</div>
 			</section>
 			
-			<div class="dropdown justify-content-end d-flex p-2">
-			<a href="/studentAttend"><button class="btn btn-primary btn-lg"
-				type="button" data-bs-toggle="dropdown" aria-expanded="true">
+			<div class="justify-content-end d-flex p-2">
+			<a href="/studentAddToClass?classId=<%= request.getParameter("classId")%>"><button class="btn btn-primary btn-md"
+				type="button" aria-expanded="true">
+				학생 추가하기
+			</button></a>
+			<a href="/studentAttend?classId=<%= request.getParameter("classId")%>"><button class="btn btn-primary btn-md"
+				type="button" aria-expanded="true" style="margin-left: 20px;">
 				출석체크하기
 			</button></a>
 			

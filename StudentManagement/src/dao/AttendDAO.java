@@ -13,124 +13,98 @@ import vo.StudentTagVO;
 import vo.StudentVO;
 
 public class AttendDAO {
-	public ArrayList<AttendVO> selectAttendByList(ArrayList<StudentTagVO> array){
-		ArrayList<AttendVO> memberList = new ArrayList <AttendVO>();
-		
+	public ArrayList<AttendVO> selectAttendByList(ArrayList<StudentTagVO> array) {
+		ArrayList<AttendVO> memberList = new ArrayList<AttendVO>();
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		AttendVO member = null;
-		
+
 		conn = JdbcUtil.getConnection();
-		
+
 		try {
-			for(StudentTagVO el:array) {
-				pstmt = conn.prepareStatement("select * from attend where studentid=?");
+			for (StudentTagVO el : array) {
+				pstmt = conn.prepareStatement("select userid, classid, TO_CHAR(dates, 'YYYY-MM-DD') dates from attend where userid=? AND classid=?");
 				pstmt.setInt(1, el.getStudentId());
-				System.out.println(el.getStudentId());
+				pstmt.setString(2, el.getClassId());
 				rs = pstmt.executeQuery();
-				
-				if(rs.next()) {
+
+				if (rs.next()) {
 					member = new AttendVO();
-					member.setStudentId(rs.getInt("studentid"));
+					member.setStudentId(rs.getInt("userid"));
 					member.setClassId(rs.getString("classid"));
 					member.setDate(rs.getString("dates"));
 					memberList.add(member);
 				}
 			}
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-			
-		}finally {
+
+		} finally {
 			JdbcUtil.close(conn, pstmt, rs);
 		}
-		
+
 		return memberList;
 	}
-	
-	public ArrayList<StudentVO> selectAttend(){
-		ArrayList<StudentVO> memberList = new ArrayList <StudentVO>();
-		
+
+	public ArrayList<AttendVO> selectAttend(int studentId, String classId) {
+		ArrayList<AttendVO> memberList = new ArrayList<AttendVO>();
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		StudentVO member = null;
-		
+		AttendVO member = null;
+
 		conn = JdbcUtil.getConnection();
-		
+
 		try {
-			pstmt = conn.prepareStatement("select * from attend order by studentid");
+
+			pstmt = conn.prepareStatement("select userid, classid, TO_CHAR(dates, 'YYYY-MM-DD') dates from attend where userid=? AND classid=?");
+			pstmt.setInt(1, studentId);
+			pstmt.setString(2, classId);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				member = new StudentVO();
-				member.setStudentId(rs.getInt("studentid"));
-				member.setStudentName(rs.getString("studentname"));
-				member.setStudentBirth(rs.getString("birth"));
+
+			while (rs.next()) {
+				member = new AttendVO();
+				member.setStudentId(rs.getInt("userid"));
+				member.setClassId(rs.getString("classid"));
+				member.setDate(rs.getString("dates"));
 				memberList.add(member);
 			}
-		}catch(SQLException e) {
+
+		} catch (SQLException e) {
 			e.printStackTrace();
-			
-		}finally {
+
+		} finally {
 			JdbcUtil.close(conn, pstmt, rs);
 		}
-		
+
 		return memberList;
 	}
-	
-	public int getAttend(String id, String pw) {		
+
+	public int insertAttend(AttendVO vo) {
+		int n = 0;
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		StudentVO member = null;
-		int n = 0;
-		conn = JdbcUtil.getConnection();
-		
-		try {
-			pstmt = conn.prepareStatement("select * from attend where studentid=?");
-			pstmt.setString(1, id);
-			pstmt.setString(2, pw);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				member = new StudentVO();
-				member.setStudentId(rs.getInt("studentid"));
-				member.setStudentName(rs.getString("studentname"));
-				member.setStudentBirth(rs.getString("birth"));
-				n=1;
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-			
-		}finally {
-			JdbcUtil.close(conn, pstmt, rs);
-		}
-		
-		return n;
-	}
-	
-	public int insertAttend(StudentVO vo) {
-		int n = 0;
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		String sql = "insert into attend values(student_seq.nextval,?,?)";
-		
+		String sql = "insert into attend values(?,?,(SELECT SYSDATE FROM DUAL))";
+
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getStudentName());
-			pstmt.setString(2, vo.getStudentBirth());
+			
+			pstmt.setInt(1, vo.getStudentId());
+			pstmt.setString(2, vo.getClassId());
 			n = pstmt.executeUpdate();
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			JdbcUtil.close(conn, pstmt);
 		}
 		return n;
 	}
-	
+
 //	public int updateAttend(StudentVO vo) {
 //		int n = 0;
 //		

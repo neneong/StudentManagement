@@ -23,7 +23,7 @@
 									<div id = "stduentIdTitle" style="width: 20rem;">학생 아이디</div>
 									<div id = "studentNameTitle" style="width: 20rem;">학생 이름</div>
 									<div id = "studentNameTitle" style="width: 20rem;">생년월일</div>
-									<div id = "studentEditTitle" style="width: 20rem;">삭제</div>
+									<div id = "studentEditTitle" style="width: 20rem;">수정</div>
 									<div id = "studentDeleteTitle" style="width: 20rem;">삭제</div>
 								</div>
 								<ul class="list-group list-group-flush">
@@ -32,10 +32,10 @@
 											<div id = "stduentId" style="width: 20rem;">${item.studentId}</div>
 											<div id = "studentName" style="width: 20rem;">${item.studentName}</div>
 											<div id = "studentBirth" style="width: 20rem;">${item.studentBirth}</div>
-											<a style="width: 20rem;" href="${pageContext.request.contextPath}/StudentEdit?userId=${item.studentId}"class="del">
+											<a style="width: 20rem;" href="${pageContext.request.contextPath}/studentEdit?userId=${item.studentId}"class="del">
 												<button type="button"class="btn btn-sm btn-outline-secondary">수정</button>
 											</a>
-											<a style="width: 20rem;" href="${pageContext.request.contextPath}/StudentDelete?userId=${item.studentId}"class="del">
+											<a style="width: 20rem;" href="${pageContext.request.contextPath}/studentDelete?userId=${item.studentId}"class="del">
 												<button type="button"class="btn btn-sm btn-outline-secondary">삭제</button>
 											</a>
 										</li>
