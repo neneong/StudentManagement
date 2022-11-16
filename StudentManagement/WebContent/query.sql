@@ -1,8 +1,8 @@
 create table class(
-	classId varchar2(20),
+	classId varchar2(20) primary key,
 	classPw varchar2(20),
 	className varchar2(20),
-	dates varchar2(20)
+	dates date
 );
 
 drop table class;
@@ -14,8 +14,9 @@ select * from class;
 create table student(
 	studentid number(20) primary key,
 	studentname varchar2(20),
-	birth varchar2(20)
+	birth date
 );
+
 
 CREATE SEQUENCE student_seq
        INCREMENT BY 1
@@ -36,25 +37,28 @@ create table teacher(
 
 create table teacherTag(
 	userid varchar2(20),
-	classid varchar2(20),
+	classid varchar2(20) unique,
 	CONSTRAINT fk_teacher_userid FOREIGN KEY(userid)
     REFERENCES teacher(teacherid) ON DELETE CASCADE
 );
 
 create table studentTag(
 	userid number(20),
-	classid varchar2(20),
+	classid varchar2(20) unique,
 	CONSTRAINT fk_student_userid FOREIGN KEY(userid)
     REFERENCES student(studentid) ON DELETE CASCADE
 );
 
 create table attend(
-	userid varchar2(20),
+	userid number(20),
+	classid varchar2(20),
 	attend char(1),
-	dates varchar2(20),
-	CONSTRAINT fk_student_userid FOREIGN KEY(userid)
+	dates date,
+	CONSTRAINT fk_attend_userid FOREIGN KEY(userid)
     REFERENCES student(studentid) ON DELETE CASCADE
 );
+
+drop table attend;
 
 insert into teacher values('1111','2222','aaaaa');
 
@@ -64,6 +68,7 @@ insert into studentTag values('2222','1');
 select * from student;
 select * from teacher;
 drop table studentTag;
+drop table teacherTag;
 drop table student;
 select * from studentTag;
 

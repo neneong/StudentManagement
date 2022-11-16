@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ClassDAO;
+import dao.StudentDAO;
 import dao.StudentTagDAO;
 import dao.TeacherTagDAO;
 import vo.ClassVO;
 import vo.StudentTagVO;
+import vo.StudentVO;
 import vo.TeacherTagVO;
 
 /**
@@ -38,21 +40,35 @@ public class ClassViewController extends HttpServlet {
 		ClassDAO dao = new ClassDAO();
 		TeacherTagDAO ttd = new TeacherTagDAO();
 		StudentTagDAO std = new StudentTagDAO();
+		StudentDAO sd = new StudentDAO();
+		
 		ClassVO vo = new ClassVO();
 		TeacherTagVO ttv = new TeacherTagVO();
 		StudentTagVO stv = new StudentTagVO();
+		ArrayList<StudentTagVO> array = new ArrayList<StudentTagVO>();
 		
+		ArrayList<StudentVO> list = new ArrayList<StudentVO>();
 		
 		String classId = request.getParameter("classId");
+		array = std.selectClassById(classId);
+		
+		
 		dao.selectClass(classId);
 		String className = vo.getClassName();
-		String classdate = vo.getDate();
+		String classDate = vo.getDate();
+		list = sd.selectMemberByList(array); 
 		
 		
 		request.setCharacterEncoding("UTF-8");
+		request.setAttribute("className", className);
+		request.setAttribute("classDate", classDate);
+		request.setAttribute("studentList", list);
+		
+		
+		
 		response.setContentType("text/html;charset=UTF-8");
 		
-		request.getRequestDispatcher("/home.jsp").forward(request, response);
+		request.getRequestDispatcher("/classView.jsp").forward(request, response);
 	}
 
 	/**

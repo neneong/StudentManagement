@@ -17,7 +17,7 @@
             <label for="floatingDate">학생 생년월일</label>
           </div>
           
-          <button type="submit" class="btn btn-outline-primary w-100 btn-lg">학생 추가하기</button>
+          <button type="submit" class="btn btn-outline-primary w-100 btn-lg mt-4">학생 추가하기</button>
         </form>
         
         </main>

@@ -7,10 +7,46 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import common.JdbcUtil;
+import vo.StudentTagVO;
 import vo.StudentVO;
 import vo.TeacherVO;
 
 public class StudentDAO {
+	public ArrayList<StudentVO> selectMemberByList(ArrayList<StudentTagVO> array){
+		ArrayList<StudentVO> memberList = new ArrayList <StudentVO>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StudentVO member = null;
+		
+		conn = JdbcUtil.getConnection();
+		
+		try {
+			for(StudentTagVO el:array) {
+				pstmt = conn.prepareStatement("select * from student where studentid=?");
+				pstmt.setInt(1, el.getStudentId());
+				System.out.println(el.getStudentId());
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					member = new StudentVO();
+					member.setStudentId(rs.getInt("studentid"));
+					member.setStudentName(rs.getString("studentname"));
+					member.setStudentBirth(rs.getString("birth"));
+					memberList.add(member);
+				}
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			
+		}finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		}
+		
+		return memberList;
+	}
+	
 	public ArrayList<StudentVO> selectMember(){
 		ArrayList<StudentVO> memberList = new ArrayList <StudentVO>();
 		

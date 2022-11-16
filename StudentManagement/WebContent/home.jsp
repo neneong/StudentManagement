@@ -57,14 +57,14 @@
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group">
 									<a
-										href="${pageContext.request.contextPath}/ClassDelete?userId=${item.classId}"
+										href="${pageContext.request.contextPath}/ClassDelete?classId=${item.classId}"
 										class="del"><button type="button"
 											class="btn btn-sm btn-outline-secondary">삭제</button></a> <a
-										href="${pageContext.request.contextPath}/ClassEdit?userId=${item.classId}"
+										href="${pageContext.request.contextPath}/ClassEdit?classId=${item.classId}"
 										class="edit"><button type="button"
 											class="btn btn-sm btn-outline-secondary">수정</button></a>
 										<a
-										href="${pageContext.request.contextPath}/classView?userId=${item.classId}"
+										href="${pageContext.request.contextPath}/classView?classId=${item.classId}"
 										class="edit"><button type="button"
 											class="btn btn-sm btn-outline-secondary">보기</button></a>
 

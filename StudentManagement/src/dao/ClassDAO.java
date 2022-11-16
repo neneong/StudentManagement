@@ -19,7 +19,7 @@ public class ClassDAO {
 		conn = JdbcUtil.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("select classname, dates from class where classid=?");
+			pstmt = conn.prepareStatement("select classname, TO_CHAR(dates, 'YYYY-MM-DD') dates from class where classid=?");
 			pstmt.setString(1, classid);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -47,7 +47,7 @@ public class ClassDAO {
 		conn = JdbcUtil.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("select classid, classname, dates from class order by classid");
+			pstmt = conn.prepareStatement("select classid, classname, TO_CHAR(dates, 'YYYY-MM-DD') dates from class order by classid");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -78,7 +78,7 @@ public class ClassDAO {
 		conn = JdbcUtil.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("select classid, classname, classinfo, dates from class where dates LIKE ? order by classid");
+			pstmt = conn.prepareStatement("select classid, classname, TO_CHAR(dates, 'YYYY-MM-DD') dates from class where TO_CHAR(dates, 'YYYY-MM-DD') LIKE ? order by classid");
 			pstmt.setString(1, year + "%");
 			rs = pstmt.executeQuery();
 			
@@ -104,7 +104,7 @@ public class ClassDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into class(classId, classPw, className, dates) values(?,?,?,?)";
+		String sql = "insert into class(classId, classPw, className, dates) values(?,?,?,(SELECT SYSDATE FROM DUAL))";
 		
 		conn = JdbcUtil.getConnection();
 		try {
@@ -112,7 +112,6 @@ public class ClassDAO {
 			pstmt.setString(1, vo.getClassId());
 			pstmt.setString(2, vo.getClassPw());
 			pstmt.setString(3, vo.getClassName());
-			pstmt.setString(4, vo.getDate());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

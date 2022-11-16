@@ -5,7 +5,8 @@
 
 			<link rel="stylesheet" href="<%=request.getContextPath()%>/css/home.css">
 
-			<section class="py-5 text-center container">
+			<div class="container">
+				<section class="py-5 text-center container">
 				<div class="row py-lg-5">
 					<div class="col-lg-6 col-md-8 mx-auto">
 						<h1 class="fw-light">클래스 화면</h1>
@@ -13,6 +14,14 @@
 					</div>
 				</div>
 			</section>
+			
+			<div class="dropdown justify-content-end d-flex p-2">
+			<a href="/studentAttend"><button class="btn btn-primary btn-lg"
+				type="button" data-bs-toggle="dropdown" aria-expanded="true">
+				출석체크하기
+			</button></a>
+			
+		</div>
 
 			<div class="album py-5 ">
 				<div class="container">
@@ -23,7 +32,7 @@
 									<div id = "stduentIdTitle" style="width: 20rem;">학생 아이디</div>
 									<div id = "studentNameTitle" style="width: 20rem;">학생 이름</div>
 									<div id = "studentNameTitle" style="width: 20rem;">생년월일</div>
-									<div id = "studentEditTitle" style="width: 20rem;">삭제</div>
+									<div id = "studentEditTitle" style="width: 20rem;">수정</div>
 									<div id = "studentDeleteTitle" style="width: 20rem;">삭제</div>
 								</div>
 								<ul class="list-group list-group-flush">
@@ -50,6 +59,9 @@
 
 					</div>
 				</div>
+			</div>
+			
+			
 			</div>
 			<script src="./js/script.js"></script>
 			<%@ include file="footer.jsp" %>

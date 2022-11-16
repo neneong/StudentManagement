@@ -1,27 +1,23 @@
-package controller;
+package controller.student;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TeacherDAO;
-
 /**
- * Servlet implementation class MemberDeleteController
+ * Servlet implementation class studentAttendController
  */
-@WebServlet("/memberDelete")
-public class MemberDeleteController extends HttpServlet {
+@WebServlet("/studentAttendIn")
+public class StudentAttendController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberDeleteController() {
+    public StudentAttendController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,19 +26,8 @@ public class MemberDeleteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		String userId = request.getParameter("userId");
-		String contextPath = request.getContextPath();
-		
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		
-		TeacherDAO dao = new TeacherDAO();
-		int n = dao.deleteTeacher(userId);
-		if(n<=0) {
-			out.println("<script>alert('멤버 삭제 실패');</script>");
-		}
-		response.sendRedirect(contextPath+"memberList");
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

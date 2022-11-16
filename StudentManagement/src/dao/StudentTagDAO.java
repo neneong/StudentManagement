@@ -29,7 +29,8 @@ public class StudentTagDAO {
 			
 			while(rs.next()) {
 				classes = new StudentTagVO();
-				classes.setClassId(rs.getString("userid"));
+				int id = rs.getInt("userid");
+				classes.setStudentId(id);
 				studentList.add(classes);
 			}
 		}catch(SQLException e) {
@@ -52,7 +53,7 @@ public class StudentTagDAO {
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getStudentId());
+			pstmt.setInt(1, vo.getStudentId());
 			pstmt.setString(2, vo.getClassId());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
@@ -84,7 +85,7 @@ public class StudentTagDAO {
 //		return n;
 //	}
 	
-	public int deleteClass(String userId, String classId) {
+	public int deleteClassTag(Integer userId, String classId) {
 		int n = 0;
 		
 		Connection conn = null;
@@ -95,7 +96,7 @@ public class StudentTagDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
+			pstmt.setInt(1, userId);
 			pstmt.setString(2, classId);
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
