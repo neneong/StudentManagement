@@ -66,6 +66,8 @@ drop table studentTag;
 drop table student;
 select * from studentTag;
 
+SELECT student_seq.nextval FROM dual;
+
 drop table teacher;
 drop table student;
 drop table middle;
