@@ -33,6 +33,7 @@ create table teacher(
 	teachername varchar2(20)
 );
 
+
 create table teacherTag(
 	userid varchar2(20),
 	classid varchar2(20),
