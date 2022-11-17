@@ -40,7 +40,7 @@ public class StudentListController extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		
 		request.setAttribute("studentList", memberList);
-		request.getRequestDispatcher("/studentList.jsp").forward(request, response);
+		request.getRequestDispatcher("/student/studentList.jsp").forward(request, response);
 		
 	}
 

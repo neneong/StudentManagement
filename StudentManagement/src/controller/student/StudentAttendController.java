@@ -17,7 +17,7 @@ import vo.ClassVO;
 import vo.StudentTagVO;
 import vo.StudentVO;
 import vo.TeacherTagVO;
-
+// 교실에 학생이 출석했는지에 관한 리스트를 보내주는 컨트롤러.
 /**
  * Servlet implementation class studentAttendController
  */
@@ -69,7 +69,7 @@ public class StudentAttendController extends HttpServlet {
 		
 		response.setContentType("text/html;charset=UTF-8");
 		
-		request.getRequestDispatcher("/addAttend.jsp").forward(request, response);
+		request.getRequestDispatcher("/attend/addAttend.jsp").forward(request, response);
 	}
 
 	/**

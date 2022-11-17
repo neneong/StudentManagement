@@ -31,9 +31,6 @@
           <li><a href="/classList" class="nav-link px-2 link-dark">수업 관리</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-        </form>
 
         <div class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,8 +38,8 @@
           </a>
           <ul class="dropdown-menu text-small">
           	<li class="dropdown-item"><%= (String)session.getAttribute("id") %></li>
-            <li><a class="dropdown-item" href="/ClassAdd.jsp">새 클래스 만들기</a></li>
-            <li><a class="dropdown-item" href="/studentAdd.jsp">학생 추가하기</a></li>
+            <li><a class="dropdown-item" href="/class/classAdd.jsp">새 클래스 만들기</a></li>
+            <li><a class="dropdown-item" href="/student/studentAdd.jsp">학생 추가하기</a></li>
             <li><a class="dropdown-item" href="/settings.jsp">설정</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/userLogout">로그아웃</a></li>

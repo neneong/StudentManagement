@@ -82,3 +82,8 @@ drop table teacher;
 drop table student;
 drop table middle;
 drop table member;
+
+
+update student set birth='2020-01-02' where studentid=2;
+select * from attend;
+delete from attend where userid=2 AND classid='22222' AND TO_CHAR(dates, 'YYYY-MM-DD')='2022-11-17';

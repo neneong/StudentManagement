@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.StudentDAO;
 import vo.StudentVO;
-
+// 학생을 교실에 추가하기 위한 리스트를 보내주는 컨트롤러.
 /**
  * Servlet implementation class StudentAddToClassController
  */
@@ -40,7 +40,9 @@ public class StudentAddToClassController extends HttpServlet {
 		
 		request.setAttribute("studentList", memberList);
 		request.setAttribute("classId", classId);
-		request.getRequestDispatcher("/studentAddToClass.jsp").forward(request, response);
+		response.setContentType("text/html;charset=UTF-8");
+		
+		request.getRequestDispatcher("/student/studentAddToClass.jsp").forward(request, response);
 		
 	}
 

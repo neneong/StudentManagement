@@ -47,11 +47,12 @@ public class StudentDeleteController extends HttpServlet {
 		int n = dao.deleteStudent(studentId);
 		
 		if(n>0) {
+			out.print("<script>alert('학생 삭제 완');</script>");
 			response.sendRedirect(contextPath + "/studentList");
 			
 		}else {
             out.print("<script>alert('올바르지 않은 접근입니다.');</script>");
-			response.sendRedirect(contextPath + "/studentList.jsp");
+			response.sendRedirect(contextPath + "/studentList");
 		}
 	}
 

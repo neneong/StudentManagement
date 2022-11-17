@@ -168,13 +168,14 @@ public class StudentDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "update student set studentname=? where studentid=?";
+		String sql = "update student set studentname=?, birth=? where studentid=?";
 		
 		conn = JdbcUtil.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getStudentName());
-			pstmt.setInt(2, vo.getStudentId());
+			pstmt.setString(2, vo.getStudentBirth());
+			pstmt.setInt(3, vo.getStudentId());
 			n = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

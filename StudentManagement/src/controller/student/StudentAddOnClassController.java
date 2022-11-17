@@ -15,7 +15,7 @@ import dao.StudentTagDAO;
 import vo.AttendVO;
 import vo.StudentTagVO;
 import vo.StudentVO;
-
+// 학생을 교실에 추가하는 컨트롤러.
 /**
  * Servlet implementation class StudentAddOnClassController
  */

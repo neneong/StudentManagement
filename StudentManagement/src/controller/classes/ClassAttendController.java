@@ -69,7 +69,7 @@ public class ClassAttendController extends HttpServlet {
 		
 		response.setContentType("text/html;charset=UTF-8");
 		
-		request.getRequestDispatcher("/attendList.jsp").forward(request, response);
+		request.getRequestDispatcher("/attend/attendList.jsp").forward(request, response);
 	}
 
 	/**

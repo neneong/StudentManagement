@@ -19,7 +19,7 @@ import vo.StudentVO;
 import vo.TeacherTagVO;
 
 /**
- * Servlet implementation class ClassViewController
+ * 클래스 목록 classView.jsp로 넘겨주기. 
  */
 @WebServlet("/classView")
 public class ClassViewController extends HttpServlet {
@@ -69,7 +69,7 @@ public class ClassViewController extends HttpServlet {
 		
 		response.setContentType("text/html;charset=UTF-8");
 		
-		request.getRequestDispatcher("/classView.jsp").forward(request, response);
+		request.getRequestDispatcher("/class/classView.jsp").forward(request, response);
 	}
 
 	/**

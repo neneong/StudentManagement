@@ -5,9 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+/*
+ * JDBCUtil, DB에 연결하는 역할을 맡는다.
+ * 
+ * */
+
 
 public class JdbcUtil {
 	public static Connection getConnection() {
+		// DB 연결 가져오
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -17,9 +23,11 @@ public class JdbcUtil {
 			e.printStackTrace();
 		}
 		return conn;
+		
 	}
 	
 	public static void close(Connection conn, PreparedStatement pstmt) {
+		//DB 연결 닫기,Connection과 PreparedStatement만 닫는다.
 		if(pstmt!=null) {
 			try {
 				pstmt.close(); 
@@ -42,6 +50,7 @@ public class JdbcUtil {
 	}
 	
 	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+		// DB 연결 닫기, ResultSet까지 닫는다.
 		if(rs!= null) {
 			try {
 				rs.close();

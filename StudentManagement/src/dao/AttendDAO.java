@@ -105,45 +105,29 @@ public class AttendDAO {
 		return n;
 	}
 
-//	public int updateAttend(StudentVO vo) {
-//		int n = 0;
-//		
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		String sql = "update attend set studentname=? where studentid=?";
-//		
-//		conn = JdbcUtil.getConnection();
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, vo.getStudentName());
-//			pstmt.setInt(2, vo.getStudentId());
-//			n = pstmt.executeUpdate();
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			JdbcUtil.close(conn, pstmt);
-//		}
-//		return n;
-//	}
-//	
-//	public int deleteAttend(String userId) {
-//		int n = 0;
-//		
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		String sql = "delete from attend where studentid=?";
-//		
-//		conn = JdbcUtil.getConnection();
-//		
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, userId);
-//			n = pstmt.executeUpdate();
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			JdbcUtil.close(conn, pstmt);
-//		}
-//		return n;
-//	}
+	public int deleteAttend(AttendVO vo) {
+		int n = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete from attend where userid=? AND classid=? AND TO_CHAR(dates, 'YYYY-MM-DD')=?";
+		
+		conn = JdbcUtil.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, vo.getStudentId());
+			System.out.println(vo.getClassId());
+			System.out.println(vo.getDate());
+			System.out.println(vo.getStudentId());
+			pstmt.setString(2, vo.getClassId());
+			pstmt.setString(3, vo.getDate());
+			n = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(conn, pstmt);
+		}
+		return n;
+	}
 }

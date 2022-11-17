@@ -11,7 +11,7 @@ import dao.StudentDAO;
 import dao.TeacherDAO;
 import vo.StudentVO;
 import vo.TeacherVO;
-
+// 학생 추가 컨트롤러.
 /**
  * Servlet implementation class MemberInsertController
  */

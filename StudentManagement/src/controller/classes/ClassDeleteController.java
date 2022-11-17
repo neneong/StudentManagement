@@ -30,7 +30,7 @@ public class ClassDeleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String ClassId = request.getParameter("userId");
+		String ClassId = request.getParameter("classId");
 		String contextPath = request.getContextPath();
 		
 		request.setCharacterEncoding("UTF-8");
@@ -39,9 +39,10 @@ public class ClassDeleteController extends HttpServlet {
 		ClassDAO dao = new ClassDAO();
 		int n = dao.deleteClass(ClassId);
 		if(n<=0) {
-			out.println("<script>alert('클래스 삭제 실패');</script>");
+			out.println("<script>alert('클래스 삭제 실패');location.href='/classList'</script>");
+		}else {
+			out.println("<script>alert('클래스 삭제 성공');location.href='/classList'</script>");
 		}
-		response.sendRedirect(contextPath+"memberList");
 	}
 
 	/**
