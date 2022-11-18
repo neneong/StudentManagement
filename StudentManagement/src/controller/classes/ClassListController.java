@@ -54,7 +54,7 @@ public class ClassListController extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setAttribute("classes", classList);
 		request.setAttribute("year", year);
-		request.getRequestDispatcher("/home.jsp").forward(request, response);
+		request.getRequestDispatcher("/class/classList.jsp").forward(request, response);
 	}
 
 	/**

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="header.jsp"%>
+<%@ include file="/header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
@@ -56,18 +56,15 @@
 						<div class="card-body">
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group">
-									 <a
-										href="${pageContext.request.contextPath}/classEdit?classId=${item.classId}"
+									<a
+										href="${pageContext.request.contextPath}/classView?classId=${item.classId}"
 										class="edit"><button type="button"
-											class="btn btn-sm btn-outline-secondary">수정</button></a>
+											class="btn btn-sm btn-outline-secondary" style="margin-right:10px;">보기</button></a>
 											<a
 										href="${pageContext.request.contextPath}/classDelete?classId=${item.classId}"
 										class="del"><button type="button"
 											class="btn btn-sm btn-outline-secondary">삭제</button></a>
-										<a
-										href="${pageContext.request.contextPath}/classView?classId=${item.classId}"
-										class="edit"><button type="button"
-											class="btn btn-sm btn-outline-secondary">보기</button></a>
+										
 
 								</div>
 								<small class="text-muted">${item.date}</small>
@@ -81,5 +78,4 @@
 		</div>
 	</div>
 </div>
-<script src="./js/script.js"></script>
-<%@ include file="footer.jsp"%>
+<%@ include file="/footer.jsp"%>

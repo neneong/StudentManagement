@@ -36,6 +36,9 @@ public class StudentAddOnClassController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		
 		String[] attendStudents = request.getParameterValues("attend");
 		StudentTagVO vo = new StudentTagVO();
 		StudentTagDAO dao = new StudentTagDAO();

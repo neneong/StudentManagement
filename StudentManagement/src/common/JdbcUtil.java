@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class JdbcUtil {
 	public static Connection getConnection() {
-		// DB 연결 가져오
+		// DB 연결 가져오기
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");

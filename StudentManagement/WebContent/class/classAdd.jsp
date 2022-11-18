@@ -16,10 +16,6 @@
             <input type="text" class="form-control" name="classId" id="floatingInput" placeholder="betagamma">
             <label for="floatingInput">클래스 아이디</label>
           </div>
-          <div class="form-floating">
-            <input type="password" class="form-control" name = "classPw" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">비밀번호(선택)</label>
-          </div>
           
           <button type="submit" class="btn btn-outline-primary w-100 btn-lg">생성하기</button>
         </form>

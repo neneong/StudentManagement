@@ -37,14 +37,14 @@ create table teacher(
 
 create table teacherTag(
 	userid varchar2(20),
-	classid varchar2(20) unique,
+	classid varchar2(20),
 	CONSTRAINT fk_teacher_userid FOREIGN KEY(userid)
     REFERENCES teacher(teacherid) ON DELETE CASCADE
 );
 
 create table studentTag(
 	userid number(20),
-	classid varchar2(20) unique,
+	classid varchar2(20),
 	CONSTRAINT fk_student_userid FOREIGN KEY(userid)
     REFERENCES student(studentid) ON DELETE CASCADE
 );
@@ -76,11 +76,12 @@ drop table teacherTag;
 drop table student;
 select * from studentTag;
 
+
 SELECT student_seq.nextval FROM dual;
 
 drop table teacher;
 drop table student;
-drop table middle;
+
 drop table member;
 
 
