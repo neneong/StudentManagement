@@ -1,5 +1,5 @@
 package controller.teacher;
-
+//선생님을 추가하는 컨트롤러.
 import java.io.IOException;
 import java.io.PrintWriter;
 

@@ -1,5 +1,5 @@
 package controller.student;
-
+// 클래스의 학생의 출석을 취소하는 컨트롤러.
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;

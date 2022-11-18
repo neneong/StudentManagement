@@ -39,6 +39,7 @@ public class StudentAddOnClassController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
+		// 클래스에 학생을 등록하는 코
 		String[] attendStudents = request.getParameterValues("attend");
 		StudentTagVO vo = new StudentTagVO();
 		StudentTagDAO dao = new StudentTagDAO();

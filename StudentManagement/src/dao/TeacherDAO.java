@@ -12,6 +12,7 @@ import common.JdbcUtil;
 import vo.TeacherVO;
 
 public class TeacherDAO {
+	//선생님을 리스트 형태로 반환하는 함수.
 	public ArrayList<TeacherVO> selectMember(){
 		ArrayList<TeacherVO> memberList = new ArrayList <TeacherVO>();
 		
@@ -42,6 +43,7 @@ public class TeacherDAO {
 		return memberList;
 	}
 	
+	//선생님 로그인하는 함수.
 	public int loginTeacher(String id, String pw) {		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -73,6 +75,7 @@ public class TeacherDAO {
 		return n;
 	}
 	
+	//선생님 정보 가져오는 함수.
 	public int getTeacher(String id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -97,7 +100,7 @@ public class TeacherDAO {
 		return n;
 	}
 
-	
+	//선생님 정보를 삽입하는 함수.
 	public int insertTeacher(TeacherVO vo) {
 		int n = 0;
 		
@@ -120,6 +123,7 @@ public class TeacherDAO {
 		return n;
 	}
 	
+	// 선생님 정보 업데이트하는 함수.
 	public int updateTeacher(TeacherVO vo) {
 		int n = 0;
 		
@@ -141,6 +145,7 @@ public class TeacherDAO {
 		return n;
 	}
 	
+	//선생님 비밀번호 업데이트하는 함수.
 	public int updateTeacherPwd(TeacherVO vo) {
 		int n = 0;
 		
@@ -162,6 +167,7 @@ public class TeacherDAO {
 		return n;
 	}
 	
+	//선생님 삭제하는 함수.
 	public int deleteTeacher(String userId) {
 		int n = 0;
 		

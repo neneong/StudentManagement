@@ -1,5 +1,5 @@
 package controller.student;
-
+// 학생의 출석체크를 하는 컨트롤러.
 import java.io.IOException;
 import java.io.PrintWriter;
 

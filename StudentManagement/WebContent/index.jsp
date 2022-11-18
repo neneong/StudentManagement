@@ -1,3 +1,7 @@
+<!-- index.jsp실행하면 됩니다. 서버 경로는 /로 설정해주시면 됩니다.  -->
+<!-- sql 실행의 경우는 qeury.sql파일을 열고, 위에서 아래로 순차 실행해주시면 됩니다. -->
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 

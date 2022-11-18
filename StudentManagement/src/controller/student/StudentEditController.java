@@ -1,5 +1,5 @@
 package controller.student;
-
+// 학생 정보 수정하는 컨트롤러.
 import java.io.IOException;
 import java.io.PrintWriter;
 

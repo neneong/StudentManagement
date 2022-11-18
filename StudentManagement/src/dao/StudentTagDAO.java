@@ -12,6 +12,8 @@ import vo.StudentTagVO;
 import vo.StudentVO;
 
 public class StudentTagDAO {	
+	
+	//학생 태그를 가져오는 함수.
 	public ArrayList<StudentTagVO> selectClassById(String classId){
 		ArrayList<StudentTagVO> studentList = new ArrayList <StudentTagVO>();
 		
@@ -43,6 +45,7 @@ public class StudentTagDAO {
 		return studentList;
 	}
 	
+	//학생 태그를 추가하는 함수.
 	public int insertClassTag(StudentTagVO vo) {
 		int n = 0;
 		
@@ -63,28 +66,8 @@ public class StudentTagDAO {
 		}
 		return n;
 	}
-	
-//	public int updateClass(StudentTagVO vo) {
-//		int n = 0;
-//		
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		String sql = "update studentTag set classId=? where userId=?";
-//		
-//		conn = JdbcUtil.getConnection();
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, vo.getStudentId());
-//			pstmt.setString(2, vo.getClassId());
-//			n = pstmt.executeUpdate();
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			JdbcUtil.close(conn, pstmt);
-//		}
-//		return n;
-//	}
-	
+
+	//학생 태그를 삭제하는 함수.
 	public int deleteClassTag(Integer userId, String classId) {
 		int n = 0;
 		

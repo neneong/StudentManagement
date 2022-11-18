@@ -13,6 +13,7 @@ import vo.StudentTagVO;
 import vo.StudentVO;
 
 public class AttendDAO {
+	//출석을 리스트로 가져오는 함수.
 	public ArrayList<AttendVO> selectAttendByList(ArrayList<StudentTagVO> array) {
 		ArrayList<AttendVO> memberList = new ArrayList<AttendVO>();
 
@@ -48,6 +49,7 @@ public class AttendDAO {
 		return memberList;
 	}
 
+	//학생 id와 클래스 id를 이용하여 출석 리스트를 가져오는 함수.
 	public ArrayList<AttendVO> selectAttend(int studentId, String classId) {
 		ArrayList<AttendVO> memberList = new ArrayList<AttendVO>();
 
@@ -83,6 +85,7 @@ public class AttendDAO {
 		return memberList;
 	}
 
+	//출석하는 함수.
 	public int insertAttend(AttendVO vo) {
 		int n = 0;
 
@@ -105,6 +108,7 @@ public class AttendDAO {
 		return n;
 	}
 
+	//출석 해제하는 함수.
 	public int deleteAttend(AttendVO vo) {
 		int n = 0;
 		

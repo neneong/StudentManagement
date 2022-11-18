@@ -1,5 +1,5 @@
 package controller.user;
-
+//유저 로그아웃 컨트롤러.
 import java.io.IOException;
 import java.io.PrintWriter;
 

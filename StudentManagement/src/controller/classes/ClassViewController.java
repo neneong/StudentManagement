@@ -37,39 +37,40 @@ public class ClassViewController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ClassDAO dao = new ClassDAO();
-		TeacherTagDAO ttd = new TeacherTagDAO();
-		StudentTagDAO std = new StudentTagDAO();
-		StudentDAO sd = new StudentDAO();
+		ClassDAO dao = new ClassDAO(); //classDAO 선언.
+		TeacherTagDAO ttd = new TeacherTagDAO(); //TeacherTagDAO 선언.
+		StudentTagDAO std = new StudentTagDAO(); // StudentTagDAO 선언.
+		StudentDAO sd = new StudentDAO(); // StudentDAO 선언.
 		
-		ClassVO vo = new ClassVO();
-		TeacherTagVO ttv = new TeacherTagVO();
-		StudentTagVO stv = new StudentTagVO();
-		ArrayList<StudentTagVO> array = new ArrayList<StudentTagVO>();
+		ClassVO vo = new ClassVO(); // ClassVO 선언.
+		TeacherTagVO ttv = new TeacherTagVO(); // TeacherTagVO 선언.
+		StudentTagVO stv = new StudentTagVO(); // StduentTagVO 선언.
+		ArrayList<StudentTagVO> array = new ArrayList<StudentTagVO>(); //StudentTagVO 형식의 ArrayList array 를 선언.
 		
-		ArrayList<StudentVO> list = new ArrayList<StudentVO>();
+		ArrayList<StudentVO> list = new ArrayList<StudentVO>(); //StudentVO 형식의 ArrayList list 를 선언.
 		
-		String classId = request.getParameter("classId");
-		array = std.selectClassById(classId);
-		
-		
-		dao.selectClass(classId);
-		String className = vo.getClassName();
-		String classDate = vo.getDate();
-		list = sd.selectMemberByList(array); 
+		String classId = request.getParameter("classId"); // classId 변수값을 선언하고, classId값을 받아와서 넣기.
+		array = std.selectClassById(classId); //array에 std의 selectclassbyid의 결과값 넣기.
 		
 		
-		request.setCharacterEncoding("UTF-8");
-		request.setAttribute("classId", classId);
-		request.setAttribute("className", className);
-		request.setAttribute("classDate", classDate);
-		request.setAttribute("studentList", list);
+		dao.selectClass(classId); // selectClass 실행하기.
+		String className = vo.getClassName(); // className 변수에 vo의 className 값 가져와서 넣기.
+		String classDate = vo.getDate(); // classDate 변수에 vo의 Date값 가져와서 넣기.
+		list = sd.selectMemberByList(array); //list에 sd의 selectMemberByList결과값 가져와서 넣기.
+		
+		
+		request.setCharacterEncoding("UTF-8"); //요청 캐릭터셋 설정.
+		response.setContentType("text/html;charset=UTF-8"); // 응답 컨텐츠타입 설정.
+		
+		request.setAttribute("classId", classId); // classId에 classId변수값 넣기.
+		request.setAttribute("className", className); // className에 className 변수값 넣기.
+		request.setAttribute("classDate", classDate); // classDate에 classDate 변수값 넣기.
+		request.setAttribute("studentList", list); // studentList에 list 변수값 넣기.
 		
 		
 		
-		response.setContentType("text/html;charset=UTF-8");
 		
-		request.getRequestDispatcher("/class/classView.jsp").forward(request, response);
+		request.getRequestDispatcher("/class/classView.jsp").forward(request, response); //classView.jsp로 이동시키기.
 	}
 
 	/**

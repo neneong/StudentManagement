@@ -13,6 +13,7 @@ import vo.StudentVO;
 import vo.TeacherVO;
 
 public class StudentDAO {
+	//학생 정보를 가져오는 함수.
 	public StudentVO selectStudent(int studentId){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -45,6 +46,7 @@ public class StudentDAO {
 		return students;
 	}
 	
+	//학생들의 정보를 리스트로 가져오는 함수.
 	public ArrayList<StudentVO> selectMemberByList(ArrayList<StudentTagVO> array){
 		ArrayList<StudentVO> memberList = new ArrayList <StudentVO>();
 		
@@ -80,6 +82,7 @@ public class StudentDAO {
 		return memberList;
 	}
 	
+	//학생들 정보를 가져오는 함수.
 	public ArrayList<StudentVO> selectMember(){
 		ArrayList<StudentVO> memberList = new ArrayList <StudentVO>();
 		
@@ -111,6 +114,7 @@ public class StudentDAO {
 		return memberList;
 	}
 	
+	//id와 pw를 기반으로 학생의 정보를 가져오는 함수.
 	public int getStudent(String id, String pw) {		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -142,6 +146,7 @@ public class StudentDAO {
 		return n;
 	}
 	
+	//학생 정보 삽입하는 함수.
 	public int insertStudent(StudentVO vo) {
 		int n = 0;
 		
@@ -163,6 +168,7 @@ public class StudentDAO {
 		return n;
 	}
 	
+	//학생 정보 업데이트하는 함수.
 	public int updateStudent(StudentVO vo) {
 		int n = 0;
 		
@@ -185,6 +191,7 @@ public class StudentDAO {
 		return n;
 	}
 	
+	//학생 삭제하는 함수.
 	public int deleteStudent(String userId) {
 		int n = 0;
 		

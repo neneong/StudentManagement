@@ -1,5 +1,5 @@
 package controller.student;
-
+///학생의 리스트를 보내주는 컨트롤러.
 import java.io.IOException;
 import java.util.ArrayList;
 

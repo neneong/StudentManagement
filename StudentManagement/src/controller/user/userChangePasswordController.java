@@ -1,5 +1,5 @@
 package controller.user;
-
+//선생님의 비밀번호를 변경하는 컨트롤러.
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -36,21 +36,22 @@ public class userChangePasswordController extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession(true);
+		
 		String userId = session.getAttribute("id").toString();
-		System.out.println(userId);
 		String userPwd = request.getParameter("defaultPw");
-		System.out.println(userPwd);
+		
 		TeacherDAO dao = new TeacherDAO();
 		int n = dao.loginTeacher(userId, userPwd);
-		System.out.println(n);
+
 		if(n<=0) {
 			out.println("<script>alert('비밀번호 변경에 실패하였습니다.\\n기존 비밀번호가 일치하지 않습니다.');history.back();</script>");
 		}else {
 			TeacherVO vo = new TeacherVO();
 			String newPwd = request.getParameter("newPw").toString();
-			System.out.println(newPwd);
+
 			vo.setTeacherPwd(newPwd);
 			vo.setTeacherId(userId);
+			
 			int k = dao.updateTeacherPwd(vo);
 			System.out.println(k);
 			if(k<=0) {

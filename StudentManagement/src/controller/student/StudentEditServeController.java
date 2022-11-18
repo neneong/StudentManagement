@@ -1,5 +1,5 @@
 package controller.student;
-
+// 학생의 정보 수정을 하기 위한 정보를 보내주는 컨트롤러.
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

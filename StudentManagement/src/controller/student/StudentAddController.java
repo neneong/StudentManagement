@@ -1,6 +1,8 @@
 package controller.student;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,24 +33,24 @@ public class StudentAddController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		StudentDAO dao = new StudentDAO();
-		StudentVO vo = new StudentVO();
+		PrintWriter out = response.getWriter();
+		StudentDAO dao = new StudentDAO(); // StudentDAO 선언하기.
+		StudentVO vo = new StudentVO(); // StudentVO 선언하기.
 		
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8"); //요청 캐릭터셋 설정.
+		response.setContentType("text/html;charset=UTF-8"); // 응답 컨텐츠타입 설정.
 		
-		vo.setStudentName(request.getParameter("studentName"));
-		vo.setStudentBirth(request.getParameter("studentBirth"));
+		vo.setStudentName(request.getParameter("studentName")); //studentName에 studentName값 넣어주기.
+		vo.setStudentBirth(request.getParameter("studentBirth")); // studentBirth에 studentBirth값 넣어주기.
 		
-		String contextPath = request.getContextPath();
+		String contextPath = request.getContextPath(); // 서버 경오 가져오기.
 		
-		int n = dao.insertStudent(vo);
+		int n = dao.insertStudent(vo); //n을 선언하고, dao의 insertStudent의 결과값 넣기.
 		
-		if(n>0) {
-			response.sendRedirect(contextPath + "/classList");
-			
-		}else {
-			response.sendRedirect(contextPath + "/classList");
+		if(n<=1) { //만약 둘중에 하나라도 실패하였다면, 
+			out.println("<script>alert('학생 생성 실패');</script>"); //학생 생성 실패 메세지 보내기.
+		}else {// 성공하였다면,
+			out.println("<script>alert('학생 생성 성공');</script>"); //학생 생성 성공 메세지 보내기.
 		}
 	}
 

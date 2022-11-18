@@ -10,6 +10,7 @@ import common.JdbcUtil;
 import vo.ClassVO;
 
 public class ClassDAO {
+	// 클래스 정보 가져오는 함수.
 	public void selectClass(String classid){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -36,6 +37,7 @@ public class ClassDAO {
 		return;
 	}
 	
+	//클래스들을 리스트로 가져오는 함수.
 	public ArrayList<ClassVO> selectClasses(){
 		ArrayList<ClassVO> classList = new ArrayList <ClassVO>();
 		
@@ -67,6 +69,7 @@ public class ClassDAO {
 		return classList;
 	}
 	
+	//클래스를 연도별로 리스트로 가져오는 함수.
 	public ArrayList<ClassVO> selectClassByYear(String year){
 		ArrayList<ClassVO> classList = new ArrayList <ClassVO>();
 		
@@ -99,6 +102,7 @@ public class ClassDAO {
 		return classList;
 	}
 	
+	//클래스를 추가하는 함수.
 	public int insertClass(ClassVO vo) {
 		int n = 0;
 		
@@ -121,6 +125,7 @@ public class ClassDAO {
 		return n;
 	}
 	
+	//클래스 정보를 업데이트 하는 함수.
 	public int updateClass(ClassVO vo) {
 		int n = 0;
 		
@@ -142,6 +147,7 @@ public class ClassDAO {
 		return n;
 	}
 	
+	//클래스를 제거하는 함수.
 	public int deleteClass(String classId) {
 		int n = 0;
 		
