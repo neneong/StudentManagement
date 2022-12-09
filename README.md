@@ -1,4 +1,4 @@
-# StudentManagement
+#  학생관리 프로그램
 
 <p>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white">
@@ -18,7 +18,7 @@
 
 ## 프로젝트 개요
 
-StudentManagement는 구글 클래스룸에서 영감을 받아서 제작한 학생 관리 프로그램입니다.
+학생관리프로그램은 구글 클래스룸에서 영감을 받아서 제작한 학생 관리 프로그램입니다.
 
 ## 프로젝트 상세설명
 
